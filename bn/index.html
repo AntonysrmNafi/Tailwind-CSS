@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="bn" data-copied="কপি হয়েছে">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tailwind CSS, শূন্য থেকে অ্যাডভান্সড</title>
+<meta name="description" content="যারা শুধু বেসিক HTML জানেন তাদের জন্য বাইশটি মডিউলের ক্লাস। CSS-এর ধারণা ও Tailwind একসঙ্গে শিখুন, প্রতিটি উদাহরণের নিচে লাইভ ফলাফল দেখুন, তিনটি আসল পেজ বানান, আর প্লেগ্রাউন্ডে যা খুশি বদলান।">
+<script src="../assets/theme.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Hind+Siliguri:wght@500;700&family=Space+Grotesk:wght@500;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#6EC1FF">
+<link rel="stylesheet" href="../assets/style.css">
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<header class="topbar">
+  <button class="btn" id="menu" type="button" aria-label="মেনু">☰</button>
+  <a class="brand" href="#top"><span class="mark">Tw</span><span>Tailwind CSS</span></a>
+  <span class="spacer"></span>
+  <a class="btn" href="../" hreflang="en">English</a>
+  <button class="btn" id="lab-open" type="button">▶ প্লেগ্রাউন্ড</button>
+  <button class="btn" id="theme" type="button" aria-label="থিম">◐<span class="lbl">থিম</span></button>
+</header>
+<div class="ticker" aria-hidden="true"><div><span>FLEX</span><span>★</span><span>GRID</span><span>★</span><span>HOVER:</span><span>★</span><span>P-4</span><span>★</span><span>TEXT-XL</span><span>★</span><span>DARK:</span><span>★</span><span>SM:</span><span>★</span><span>ROUNDED</span><span>★</span><span>SHADOW</span><span>★</span><span>@THEME</span><span>★</span><span>FLEX</span><span>★</span><span>GRID</span><span>★</span><span>HOVER:</span><span>★</span><span>P-4</span><span>★</span><span>TEXT-XL</span><span>★</span><span>DARK:</span><span>★</span><span>SM:</span><span>★</span><span>ROUNDED</span><span>★</span><span>SHADOW</span><span>★</span><span>@THEME</span><span>★</span></div></div>
+<div class="scrim"></div>
+<div class="shell">
+<nav class="syllabus" aria-label="সিলেবাস">
+  <h2>সিলেবাস</h2>
+  <input class="search" id="q" type="search" placeholder="মডিউল খুঁজুন" aria-label="মডিউল খুঁজুন">
+  <div class="group lv-b">ভিত্তি</div><ol class="lv-b"><li><a href="#m01"><b>01</b><span>শুরু এখানে: Tailwind CSS কী?</span></a></li><li><a href="#m02"><b>02</b><span>সেটআপ: CDN, CLI ও Vite</span></a></li><li><a href="#m03"><b>03</b><span>মূল ইউটিলিটি: স্পেসিং, সাইজ, টাইপ, রং</span></a></li><li><a href="#m04"><b>04</b><span>বর্ডার, রেডিয়াস, শ্যাডো, রিং</span></a></li><li><a href="#m05"><b>05</b><span>লেআউটের মূল কথা: ডিসপ্লে, পজিশন, ওভারফ্লো, z-index</span></a></li><li><a href="#m06"><b>06</b><span>ব্যাকগ্রাউন্ড, গ্রেডিয়েন্ট, ফিল্টার</span></a></li></ol><div class="group lv-i">মধ্যম স্তর</div><ol class="lv-i"><li><a href="#m07"><b>07</b><span>ফ্লেক্সবক্স</span></a></li><li><a href="#m08"><b>08</b><span>গ্রিড</span></a></li><li><a href="#m09"><b>09</b><span>রেসপন্সিভ ডিজাইন</span></a></li><li><a href="#m10"><b>10</b><span>স্টেট ও ভ্যারিয়েন্ট</span></a></li><li><a href="#m11"><b>11</b><span>অ্যাডভান্সড ভ্যারিয়েন্ট ও কন্টেইনার কুয়েরি</span></a></li><li><a href="#m12"><b>12</b><span>ট্রানজিশন, ট্রান্সফর্ম, অ্যানিমেশন</span></a></li><li><a href="#m13"><b>13</b><span>ফর্ম, টেবিল ও লিস্ট</span></a></li><li><a href="#m14"><b>14</b><span>টেক্সট, মিডিয়া ও কনটেন্ট ইউটিলিটি</span></a></li></ol><div class="group lv-a">অ্যাডভান্সড</div><ol class="lv-a"><li><a href="#m15"><b>15</b><span>কাস্টমাইজেশন: থিম, arbitrary ভ্যালু, @apply</span></a></li><li><a href="#m16"><b>16</b><span>কনফিগারেশন বিস্তারিত</span></a></li><li><a href="#m17"><b>17</b><span>পুনর্ব্যবহার ও অ্যাক্সেসিবিলিটি</span></a></li><li><a href="#m18"><b>18</b><span>ফ্রেমওয়ার্ক, টুলিং ও প্রোডাকশন</span></a></li><li><a href="#m19"><b>19</b><span>প্রজেক্ট: একটি ল্যান্ডিং পেজ বানান</span></a></li><li><a href="#m20"><b>20</b><span>প্রজেক্ট: প্রাইসিং পেজ বানান</span></a></li><li><a href="#m21"><b>21</b><span>প্রজেক্ট: ড্যাশবোর্ড বানান</span></a></li></ol><div class="group lv-r">রেফারেন্স</div><ol class="lv-r"><li><a href="#m22"><b>22</b><span>চিট শিট, শব্দকোষ, পরের ধাপ</span></a></li></ol>
+</nav>
+<main id="top">
+  <section class="hero">
+    <div>
+      <div class="eyebrow">ওপেন কোর্সওয়্যার · ওয়েব ডিজাইন</div>
+      <h1>Tailwind CSS,<br><em>শূন্য</em> থেকে অ্যাডভান্সড</h1>
+      <p class="lead">যারা শুধু বেসিক HTML জানেন তাদের জন্য বাইশটি মডিউলের ক্লাস। CSS-এর ধারণা ও Tailwind একসঙ্গে শিখুন, প্রতিটি উদাহরণের নিচে লাইভ ফলাফল দেখুন, তিনটি আসল পেজ বানান, আর প্লেগ্রাউন্ডে যা খুশি বদলান।</p>
+      <div class="cta"><a class="btn primary" href="#m01">মডিউল ০১ শুরু করুন →</a><button class="btn" id="lab-open2" type="button">▶ প্লেগ্রাউন্ড</button></div>
+    </div>
+    <svg class="schema" viewBox="0 0 430 290" role="img" aria-label="Utility classes styling a button">
+<path class="ln" d="M292 55 L214 135"/><path class="ln" d="M292 115 L214 148"/><path class="ln" d="M292 175 L214 165"/><path class="ln" d="M292 235 L214 178"/>
+<g class="t"><rect class="tb" x="16" y="20" width="250" height="230"/><rect class="th" x="16" y="20" width="250" height="26"/><text class="hd" x="28" y="38">index.html</text>
+<rect x="68" y="132" width="150" height="52" fill="#111"/><rect class="bt" x="62" y="126" width="150" height="52"/><text class="hd" x="137" y="157" text-anchor="middle" style="font-size:14px">Click me</text></g>
+<g class="t"><rect class="ch" x="292" y="40" width="124" height="30"/><text x="302" y="60">bg-pink-400</text><rect class="ch" x="292" y="100" width="124" height="30"/><text x="302" y="120">border-4</text></g>
+<g class="t"><rect class="ch" x="292" y="160" width="124" height="30"/><text x="302" y="180">px-6 py-3</text><rect class="ch" x="292" y="220" width="124" height="30"/><text x="302" y="240">shadow-brutal</text></g>
+</svg>
+  </section>
+  <dl class="meta"><div><dt>সময়</dt><dd>≈ ৩৫ ঘণ্টা</dd></div><div><dt>মডিউল</dt><dd>২২</dd></div><div><dt>পূর্বশর্ত</dt><dd>বেসিক HTML</dd></div><div><dt>ভার্সন</dt><dd>Tailwind CSS v4</dd></div></dl>
+  <ol class="track"><li class="lv-b"><b>ভিত্তি</b><span>মডিউল ০১ থেকে ০৬</span><p>CSS ও Tailwind-এর মূল কথা, সেটআপ, স্পেসিং, টাইপ, রং, বর্ডার, লেআউট, ব্যাকগ্রাউন্ড ও ফিল্টার।</p></li><li class="lv-i"><b>মধ্যম স্তর</b><span>মডিউল ০৭ থেকে ১৪</span><p>ফ্লেক্সবক্স, গ্রিড, রেসপন্সিভ ডিজাইন, ভ্যারিয়েন্ট, কন্টেইনার কুয়েরি, মোশন, ফর্ম, টেবিল ও কনটেন্ট ইউটিলিটি।</p></li><li class="lv-a"><b>অ্যাডভান্সড</b><span>মডিউল ১৫ থেকে ২১</span><p>থিম, কনফিগারেশন, পুনর্ব্যবহার, অ্যাক্সেসিবিলিটি, ফ্রেমওয়ার্ক, টুলিং ও তিনটি পূর্ণ প্রজেক্ট।</p></li></ol>
+  <section class="module reveal lv-b" id="m01"><div class="mhead"><span class="num" aria-hidden="true">01</span><div><span class="badge">মডিউল 01 · প্রাথমিক</span><h2>শুরু এখানে: Tailwind CSS কী?</h2></div></div><div class="body">
+<p>এই কোর্স ধরে নেয় আপনি শুধু <strong>বেসিক HTML</strong> জানেন (<code>&lt;div&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;a&gt;</code>-এর মতো ট্যাগ)। CSS জানা লাগবে না। প্রতিটি উদাহরণের নিচে লাইভ <strong>ফলাফল</strong> আছে, আর <strong>প্লেগ্রাউন্ডে</strong> (উপরের বার) যা খুশি বদলাতে পারবেন।</p>
+<h3>CSS কী?</h3>
+<p>HTML বলে পেজে <em>কী</em> আছে, যেমন হেডিং বা বাটন। <strong>CSS</strong> বলে তা <em>দেখতে কেমন</em>: রং, আকার, ফাঁকা জায়গা ও লেআউট। সাধারণ CSS আলাদা ফাইলে থাকে এবং সিলেক্টর দিয়ে এলিমেন্ট বেছে নেয়:</p>
+<figure class="code"><figcaption><span>CSS</span><span class="fa"><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="css">.btn {
+  background: #f472b6;
+  padding: 12px 24px;
+  border: 4px solid #000;
+}
+.btn:hover {
+  background: #ec4899;
+}</code></pre></figure>
+<h3>Tailwind CSS কী?</h3>
+<p>Tailwind একটি <strong>ইউটিলিটি-ফার্স্ট</strong> ফ্রেমওয়ার্ক। CSS রুল লেখার বদলে আপনি অনেকগুলো ছোট তৈরি ক্লাস, যার প্রতিটি একটি কাজ করে, সরাসরি HTML এলিমেন্টে বসান। <code>bg-pink-400</code> ব্যাকগ্রাউন্ড দেয়, <code>px-6</code> দুই পাশে প্যাডিং দেয়, <code>font-bold</code> লেখা বোল্ড করে।</p>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">চেষ্টা করুন ▶</button><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;button class="border-4 border-black bg-pink-400 px-6 py-3 font-bold text-black shadow-[6px_6px_0_#111] transition hover:translate-x-1 hover:translate-y-1 hover:shadow-none"&gt;
+  Click me
+&lt;/button&gt;</code></pre></figure><div class="demo"><div class="demo-bar">ফলাফল</div></div>
+<h3>কেন মানুষ এটি পছন্দ করে</h3>
+<ul><li>ক্লাসের নাম বানাতে হয় না, ফাইলে ফাইলে ঘুরতে হয় না।</li><li>স্পেসিং, রং ও সাইজের একটি নির্দিষ্ট স্কেল ডিজাইন সামঞ্জস্যপূর্ণ রাখে।</li><li>যে ক্লাসগুলো ব্যবহার করেছেন শুধু সেগুলোই চূড়ান্ত CSS ফাইলে যায়, তাই ফাইল ছোট থাকে।</li><li>রেসপন্সিভ ডিজাইন ও স্টেট শুধু প্রিফিক্স: <code>md:</code>, <code>hover:</code>।</li></ul>
+<aside class="callout take"><b>মূল কথা</b><p>HTML = কাঠামো। CSS = চেহারা। Tailwind = ছোট ছোট ক্লাসের বিশাল সংগ্রহ, যাতে সরাসরি HTML-এই স্টাইল করা যায়।</p></aside>
+</div></section><section class="module reveal lv-b" id="m02"><div class="mhead"><span class="num" aria-hidden="true">02</span><div><span class="badge">মডিউল 02 · প্রাথমিক</span><h2>সেটআপ: CDN, CLI ও Vite</h2></div></div><div class="body">
+<p>Tailwind ব্যবহারের তিনটি উপায় আছে, সহজ থেকে পেশাদার।</p>
+<h3>১. Play CDN (শেখার জন্য)</h3>
+<p>একটি স্ক্রিপ্ট ট্যাগ, কিছু ইনস্টল করতে হয় না। এই কোর্সের জন্য আদর্শ, আসল ওয়েবসাইটের জন্য নয়।</p>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class="p-8"&gt;
+  &lt;h1 class="text-3xl font-bold text-pink-600"&gt;Hello Tailwind&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></figure>
+<h3>২. Tailwind CLI (ছোট সাইট)</h3>
+<p><strong>Node.js</strong> ইনস্টল করুন (nodejs.org থেকে LTS ভার্সন)। Windows-এ ইনস্টলার চালিয়ে PowerShell খুলে পরীক্ষা করুন:</p>
+<figure class="code"><figcaption><span>Shell</span><span class="fa"><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="sh">node -v
+npm -v</code></pre></figure>
+<figure class="code"><figcaption><span>Shell</span><span class="fa"><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="sh">mkdir my-site
+cd my-site
+npm init -y
+npm install tailwindcss @tailwindcss/cli
+mkdir src</code></pre></figure>
+<p>ইনপুট ফাইল বানান, watch মোডে বিল্ড চালু করুন, তারপর তৈরি হওয়া ফাইলটি HTML-এ যুক্ত করুন।</p>
+<figure class="code"><figcaption><span>CSS</span><span class="fa"><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="css">/* src/input.css */
+@import "tailwindcss";</code></pre></figure>
+<figure class="code"><figcaption><span>Shell</span><span class="fa"><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="sh">npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css --watch</code></pre></figure>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;link href="./dist/output.css" rel="stylesheet"&gt;</code></pre></figure>
+<h3>৩. Vite (আসল প্রজেক্ট)</h3>
+<p>Vite একটি দ্রুত ডেভ সার্ভার, যা React, Vue, Svelte ও সাধারণ JavaScript-এর সঙ্গে ব্যবহার হয়। Tailwind প্লাগইন হিসেবে যোগ করুন, তারপর মূল CSS ফাইলে <code>@import "tailwindcss";</code> লিখুন।</p>
+<figure class="code"><figcaption><span>Shell</span><span class="fa"><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="sh">npm create vite@latest my-app
+cd my-app
+npm install tailwindcss @tailwindcss/vite</code></pre></figure>
+<figure class="code"><figcaption><span>JavaScript</span><span class="fa"><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="js">// vite.config.js
+import { defineConfig } from "vite";
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+  plugins: [tailwindcss()],
+});</code></pre></figure>
+<aside class="callout tip"><b>পরামর্শ</b><p>Tailwind v4 আপনার টেমপ্লেট ফাইল নিজেই খুঁজে নেয়, তাই <code>tailwind.config.js</code> লিখতে হয় না। এটি আধুনিক ব্রাউজারের জন্য (Chrome 111+, Safari 16.4+, Firefox 128+)।</p></aside>
+</div></section><section class="module reveal lv-b" id="m03"><div class="mhead"><span class="num" aria-hidden="true">03</span><div><span class="badge">মডিউল 03 · প্রাথমিক</span><h2>মূল ইউটিলিটি: স্পেসিং, সাইজ, টাইপ, রং</h2></div></div><div class="body">
+<p>ইউটিলিটির নামে একটি নিয়ম আছে: <code>property-value</code>, যেমন <code>p-4</code> বা <code>text-xl</code>। একবার পরিবারগুলো শিখলে বেশিরভাগ নাম আন্দাজ করা যায়।</p>
+<h3>স্পেসিং</h3>
+<p>স্কেল <strong>0.25rem (4px)</strong> ভিত্তিক। তাই <code>p-4</code> মানে 16px।</p>
+<div class="tbl"><table><thead><tr><th>ক্লাস</th><th>অর্থ</th></tr></thead><tbody><tr><td>p-1, p-2, p-4, p-8, p-16</td><td>প্যাডিং 4px, 8px, 16px, 32px, 64px</td></tr><tr><td>px-4, py-2, pt-2, pr-2, pb-2, pl-2</td><td>x অক্ষ, y অক্ষ বা এক পাশে প্যাডিং</td></tr><tr><td>m-4, mx-auto, -mt-2</td><td>মার্জিন; <code>mx-auto</code> ব্লককে মাঝে আনে; ঋণাত্মক চিহ্নও চলে</td></tr><tr><td>gap-4, space-y-4</td><td>সন্তান এলিমেন্টের মধ্যে ফাঁক</td></tr></tbody></table></div>
+<h3>সাইজ</h3>
+<div class="tbl"><table><thead><tr><th>ক্লাস</th><th>অর্থ</th></tr></thead><tbody><tr><td>w-full, w-1/2, w-64</td><td>প্রস্থ 100%, 50%, 16rem</td></tr><tr><td>max-w-md, max-w-2xl</td><td>সর্বোচ্চ প্রস্থ</td></tr><tr><td>h-screen, min-h-screen</td><td>পুরো স্ক্রিনের উচ্চতা</td></tr><tr><td>size-10</td><td>প্রস্থ ও উচ্চতা একসঙ্গে</td></tr></tbody></table></div>
+<h3>টাইপোগ্রাফি</h3>
+<div class="tbl"><table><thead><tr><th>ক্লাস</th><th>অর্থ</th></tr></thead><tbody><tr><td>text-sm, text-xl, text-4xl</td><td>ফন্টের আকার</td></tr><tr><td>font-light, font-bold, font-black</td><td>ফন্টের ওজন</td></tr><tr><td>leading-tight, leading-relaxed</td><td>লাইনের উচ্চতা</td></tr><tr><td>tracking-tight, text-center, uppercase, truncate</td><td>অক্ষরের ফাঁক, অ্যালাইনমেন্ট, কেস, লম্বা লেখা কাটা</td></tr></tbody></table></div>
+<h3>রং</h3>
+<p>রং হলো <code>color-shade</code>: <code>bg-sky-500</code>, <code>text-rose-600</code>, <code>border-lime-300</code>। শেড 50 (সবচেয়ে হালকা) থেকে 950 (সবচেয়ে গাঢ়) পর্যন্ত। স্ল্যাশ দিয়ে অপাসিটি দিন: <code>bg-black/50</code>।</p>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">চেষ্টা করুন ▶</button><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;div class="max-w-sm border-4 border-black bg-yellow-300 p-6"&gt;
+  &lt;h2 class="text-2xl font-extrabold tracking-tight"&gt;Tailwind Card&lt;/h2&gt;
+  &lt;p class="mt-2 text-base leading-relaxed text-gray-800"&gt;Small classes, big results.&lt;/p&gt;
+  &lt;a href="#" class="mt-4 inline-block bg-black px-4 py-2 font-semibold text-white"&gt;Read more&lt;/a&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">ফলাফল</div></div>
+<details class="ex"><summary data-show="সমাধান দেখুন" data-hide="সমাধান লুকান"><small>অনুশীলন</small><span>কার্ডের ব্যাকগ্রাউন্ড গোলাপি করুন এবং লিংকের লেখা হলুদ করুন।</span></summary><figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">চেষ্টা করুন ▶</button><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;div class="max-w-sm border-4 border-black bg-pink-300 p-6"&gt;
+  &lt;h2 class="text-2xl font-extrabold tracking-tight"&gt;Tailwind Card&lt;/h2&gt;
+  &lt;p class="mt-2 text-base leading-relaxed text-gray-800"&gt;Small classes, big results.&lt;/p&gt;
+  &lt;a href="#" class="mt-4 inline-block bg-black px-4 py-2 font-semibold text-yellow-300"&gt;Read more&lt;/a&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">ফলাফল</div></div></details>
+<aside class="callout warn"><b>সতর্কতা</b><p>Tailwind ব্রাউজারের ডিফল্ট স্টাইল মুছে দেয় (বেস লেয়ারের নাম <em>Preflight</em>)। শুধু <code>&lt;h1&gt;</code> বড় ও বোল্ড হয় না, আর <code>&lt;ul&gt;</code>-এ বুলেট থাকে না। ক্লাস নিজে যোগ করুন।</p></aside>
+</div></section><section class="module reveal lv-b" id="m04"><div class="mhead"><span class="num" aria-hidden="true">04</span><div><span class="badge">মডিউল 04 · প্রাথমিক</span><h2>বর্ডার, রেডিয়াস, শ্যাডো, রিং</h2></div></div><div class="body">
+<p>এই ইউটিলিটিগুলো এলিমেন্টকে আকার দেয়। এই ওয়েবসাইটে যে শক্ত অফসেট শ্যাডো দেখছেন, সেটি একটিমাত্র arbitrary ভ্যালু: <code>shadow-[6px_6px_0_#111]</code>।</p>
+<div class="tbl"><table><thead><tr><th>ক্লাস</th><th>প্রভাব</th></tr></thead><tbody><tr><td>border-2, border-4, border-t-4</td><td>বর্ডারের পুরুত্ব, সব পাশে বা এক পাশে</td></tr><tr><td>border-black, border-pink-400</td><td>বর্ডারের রং</td></tr><tr><td>rounded-lg, rounded-xl, rounded-full</td><td>কোণের গোলাকার ভাব</td></tr><tr><td>shadow-md, shadow-xl</td><td>নরম শ্যাডো</td></tr><tr><td>ring-4 ring-sky-400</td><td>রিং আউটলাইন, যা লেআউট বদলায় না</td></tr></tbody></table></div>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">চেষ্টা করুন ▶</button><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;div class="flex flex-wrap gap-6 p-4"&gt;
+  &lt;div class="size-24 border-4 border-black bg-pink-300"&gt;&lt;/div&gt;
+  &lt;div class="size-24 rounded-xl border-4 border-black bg-sky-300"&gt;&lt;/div&gt;
+  &lt;div class="size-24 rounded-full border-4 border-black bg-lime-300"&gt;&lt;/div&gt;
+  &lt;div class="size-24 border-4 border-black bg-yellow-300 shadow-[6px_6px_0_#111]"&gt;&lt;/div&gt;
+  &lt;div class="size-24 bg-white ring-4 ring-sky-400"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">ফলাফল</div></div>
+<aside class="callout tip"><b>পরামর্শ</b><p>স্কয়ার ব্র্যাকেটে যেকোনো মান লেখা যায়: <code>w-[137px]</code>, <code>bg-[#ff7ab6]</code>, <code>top-[117px]</code>। একবারের মানের জন্য ব্যবহার করুন।</p></aside>
+</div></section><section class="module reveal lv-b" id="m05"><div class="mhead"><span class="num" aria-hidden="true">05</span><div><span class="badge">মডিউল 05 · প্রাথমিক</span><h2>লেআউটের মূল কথা: ডিসপ্লে, পজিশন, ওভারফ্লো, z-index</h2></div></div><div class="body">
+<p>ফ্লেক্সবক্স ও গ্রিডের আগে জানুন একটি এলিমেন্ট পেজে কীভাবে বসে। <code>hidden</code> এলিমেন্ট সরিয়ে দেয় (<code>display: none</code>), <code>block</code> ও <code>inline-block</code> ঠিক করে সে কীভাবে প্রবাহিত হবে, আর <code>container</code> প্রতিটি ব্রেকপয়েন্টে বাড়তে থাকা সর্বোচ্চ প্রস্থ দেয়।</p>
+<div class="tbl"><table><thead><tr><th>ক্লাস</th><th>প্রভাব</th></tr></thead><tbody><tr><td>block, inline, inline-block, hidden</td><td>ডিসপ্লের ধরন; hidden এলিমেন্ট সরিয়ে দেয়</td></tr><tr><td>container mx-auto px-4</td><td>মাঝে বসানো পেজ প্রস্থ। v4-এ মাঝে আনা ও প্যাডিং নিজে দিতে হয়</td></tr><tr><td>relative, absolute, fixed, sticky</td><td>পজিশনিং; absolute কাছের relative প্যারেন্টের সাপেক্ষে বসে</td></tr><tr><td>inset-0, top-4, -right-3, inset-x-4</td><td>পজিশন করা এলিমেন্টের অফসেট</td></tr><tr><td>z-10, z-50</td><td>স্তরের ক্রম</td></tr><tr><td>overflow-hidden, overflow-auto, overflow-x-auto</td><td>জায়গায় না ধরা অংশ কাটা বা স্ক্রল করা</td></tr><tr><td>aspect-video, aspect-square</td><td>প্রস্থ ও উচ্চতার অনুপাত ধরে রাখা</td></tr></tbody></table></div>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">চেষ্টা করুন ▶</button><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;div class="p-6"&gt;
+  &lt;div class="relative h-40 w-64 border-4 border-black bg-sky-300"&gt;
+    &lt;span class="absolute -top-3 -right-3 border-4 border-black bg-pink-400 px-2 font-black"&gt;NEW&lt;/span&gt;
+    &lt;span class="absolute bottom-2 left-2 font-bold"&gt;bottom-2 left-2&lt;/span&gt;
+    &lt;div class="absolute inset-x-4 top-1/2 h-1 bg-black"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">ফলাফল</div></div>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">চেষ্টা করুন ▶</button><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;div class="flex flex-wrap gap-4 p-4"&gt;
+  &lt;div class="aspect-video w-48 border-4 border-black bg-lime-300"&gt;&lt;/div&gt;
+  &lt;div class="h-24 w-48 overflow-hidden border-4 border-black bg-yellow-200"&gt;
+    &lt;div class="h-48 bg-orange-300 p-2"&gt;Content taller than the box is clipped&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">ফলাফল</div></div>
+<p><code>sticky</code> স্ক্রল করে পেরিয়ে গেলেও এলিমেন্টকে দৃশ্যে ধরে রাখে। স্টিকি হেডারে <code>top-0</code> অফসেট লাগে এবং সাধারণত <code>z-</code> মান লাগে, যাতে কনটেন্টের ওপরে থাকে।</p>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;header class="sticky top-0 z-50 border-b-4 border-black bg-yellow-300 p-4"&gt;
+  I stay at the top while the page scrolls
+&lt;/header&gt;</code></pre></figure>
+<aside class="callout tip"><b>পরামর্শ</b><p>কোনো সন্তান <code>absolute</code> হলে প্যারেন্টে <code>relative</code> দিন। না দিলে সন্তান পুরো পেজের সাপেক্ষে বসবে।</p></aside>
+</div></section><section class="module reveal lv-b" id="m06"><div class="mhead"><span class="num" aria-hidden="true">06</span><div><span class="badge">মডিউল 06 · প্রাথমিক</span><h2>ব্যাকগ্রাউন্ড, গ্রেডিয়েন্ট, ফিল্টার</h2></div></div><div class="body">
+<p>ব্যাকগ্রাউন্ড মানে শুধু সমতল রং নয়। v4-এ গ্রেডিয়েন্টের নাম দিকের ধরন অনুযায়ী: <code>bg-linear-to-r</code> সঙ্গে <code>from-</code>, <code>via-</code>, <code>to-</code> রং, এবং <code>bg-radial</code> ও <code>bg-conic</code>। ছবির জন্য <code>bg-[url(/img/hero.jpg)]</code>-এর মতো arbitrary মান ও <code>bg-cover bg-center</code>।</p>
+<div class="tbl"><table><thead><tr><th>ক্লাস</th><th>প্রভাব</th></tr></thead><tbody><tr><td>bg-linear-to-br from-pink-400 to-sky-300</td><td>নিচে ডানের দিকে লিনিয়ার গ্রেডিয়েন্ট</td></tr><tr><td>bg-radial, bg-conic</td><td>রেডিয়াল ও কনিক গ্রেডিয়েন্ট</td></tr><tr><td>bg-cover, bg-center, bg-no-repeat</td><td>ব্যাকগ্রাউন্ড ছবির আকার, অবস্থান ও পুনরাবৃত্তি</td></tr><tr><td>bg-white/30, opacity-50</td><td>স্বচ্ছ ব্যাকগ্রাউন্ড, বা স্বচ্ছ এলিমেন্ট</td></tr><tr><td>backdrop-blur-md</td><td>এলিমেন্টের পেছনের অংশ ঝাপসা করা (ফ্রস্টেড গ্লাস)</td></tr><tr><td>blur-sm, grayscale, brightness-125, drop-shadow-lg</td><td>এলিমেন্টের নিজের ওপর ফিল্টার</td></tr><tr><td>mix-blend-multiply</td><td>নিচের জিনিসের সঙ্গে মিশে যাওয়া</td></tr></tbody></table></div>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">চেষ্টা করুন ▶</button><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;div class="flex flex-wrap gap-4 p-4"&gt;
+  &lt;div class="h-28 w-40 border-4 border-black bg-linear-to-br from-pink-400 via-yellow-300 to-sky-300"&gt;&lt;/div&gt;
+  &lt;div class="h-28 w-40 border-4 border-black bg-radial from-yellow-200 to-pink-500"&gt;&lt;/div&gt;
+  &lt;div class="relative h-28 w-40 overflow-hidden border-4 border-black bg-linear-to-r from-sky-400 to-lime-300"&gt;
+    &lt;div class="absolute inset-4 border-2 border-white bg-white/30 p-2 font-bold backdrop-blur-md"&gt;Glass&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="h-28 w-40 border-4 border-black bg-pink-400 grayscale"&gt;&lt;/div&gt;
+  &lt;div class="h-28 w-40 border-4 border-black bg-pink-400 blur-sm"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">ফলাফল</div></div>
+<aside class="callout warn"><b>সতর্কতা</b><p><code>backdrop-blur</code>-এর জন্য এলিমেন্টের পেছনে কিছু দৃশ্যমান থাকা চাই, এবং <code>bg-white/30</code>-এর মতো আধা-স্বচ্ছ ব্যাকগ্রাউন্ড লাগে, নইলে কোনো প্রভাব দেখা যাবে না।</p></aside>
+</div></section><section class="module reveal lv-i" id="m07"><div class="mhead"><span class="num" aria-hidden="true">07</span><div><span class="badge">মডিউল 07 · মধ্যম</span><h2>ফ্লেক্সবক্স</h2></div></div><div class="body">
+<p><strong>ফ্লেক্সবক্স</strong> এলিমেন্টগুলোকে সারিতে বা কলামে সাজায়। প্যারেন্টে <code>flex</code> দিলেই সন্তানগুলো এক লাইনে আসে। নেভবার, বাটন গ্রুপ ও মাঝখানে আনার কাজে এটিই টুল।</p>
+<div class="tbl"><table><thead><tr><th>ক্লাস</th><th>প্রভাব</th></tr></thead><tbody><tr><td>flex, flex-col, flex-wrap</td><td>সারি, কলাম, মোড়ানোর অনুমতি</td></tr><tr><td>items-start, items-center, items-end</td><td>আড়াআড়ি অক্ষে অ্যালাইন (সারিতে ওপর নিচ)</td></tr><tr><td>justify-start, justify-center, justify-between, justify-around</td><td>মূল অক্ষে আইটেম ছড়ানো</td></tr><tr><td>gap-4, grow, shrink-0</td><td>ফাঁক, আইটেম বাড়তে দেওয়া, সঙ্কুচিত হওয়া বন্ধ</td></tr></tbody></table></div>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">চেষ্টা করুন ▶</button><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;nav class="flex items-center justify-between border-4 border-black bg-yellow-300 px-4 py-3"&gt;
+  &lt;span class="font-black"&gt;LOGO&lt;/span&gt;
+  &lt;ul class="flex gap-4 font-semibold"&gt;
+    &lt;li&gt;Home&lt;/li&gt;
+    &lt;li&gt;Courses&lt;/li&gt;
+    &lt;li&gt;Contact&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;button class="bg-black px-3 py-1 text-white"&gt;Login&lt;/button&gt;
+&lt;/nav&gt;</code></pre></figure><div class="demo"><div class="demo-bar">ফলাফল</div></div>
+<details class="ex"><summary data-show="সমাধান দেখুন" data-hide="সমাধান লুকান"><small>অনুশীলন</small><span>12rem উঁচু হলুদ জায়গার ঠিক মাঝখানে (আড়াআড়ি ও উল্লম্ব, দুইভাবেই) একটি বক্স বসান।</span></summary><figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">চেষ্টা করুন ▶</button><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;div class="flex h-48 items-center justify-center border-4 border-black bg-yellow-300"&gt;
+  &lt;div class="border-4 border-black bg-pink-300 p-6 font-bold"&gt;Centered&lt;/div&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">ফলাফল</div></div></details>
+</div></section><section class="module reveal lv-i" id="m08"><div class="mhead"><span class="num" aria-hidden="true">08</span><div><span class="badge">মডিউল 08 · মধ্যম</span><h2>গ্রিড</h2></div></div><div class="body">
+<p><strong>গ্রিড</strong> একসঙ্গে সারি ও কলামে আইটেম সাজায়, কার্ড লেআউট ও পেজ সেকশনের জন্য আদর্শ। <code>grid-cols-3</code> তিনটি সমান কলাম বানায়, আর <code>col-span-2</code> একটি আইটেমকে দুই কলাম জুড়ে বসায়।</p>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">চেষ্টা করুন ▶</button><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;div class="grid grid-cols-3 gap-4 p-4"&gt;
+  &lt;div class="border-4 border-black bg-pink-300 p-6"&gt;One&lt;/div&gt;
+  &lt;div class="border-4 border-black bg-sky-300 p-6"&gt;Two&lt;/div&gt;
+  &lt;div class="border-4 border-black bg-lime-300 p-6"&gt;Three&lt;/div&gt;
+  &lt;div class="col-span-2 border-4 border-black bg-yellow-300 p-6"&gt;Wide (col-span-2)&lt;/div&gt;
+  &lt;div class="border-4 border-black bg-orange-300 p-6"&gt;Six&lt;/div&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">ফলাফল</div></div>
+<div class="tbl"><table><thead><tr><th>ক্লাস</th><th>প্রভাব</th></tr></thead><tbody><tr><td>grid, grid-cols-2, grid-cols-12</td><td>কলামের সংখ্যা</td></tr><tr><td>col-span-2, row-span-2</td><td>কয়েকটি কলাম বা সারি জুড়ে বসা</td></tr><tr><td>gap-4, gap-x-6, gap-y-2</td><td>ঘরের মধ্যে ফাঁক</td></tr><tr><td>place-items-center</td><td>ঘরের ভেতরে আইটেম মাঝে আনা</td></tr></tbody></table></div>
+<aside class="callout take"><b>মূল কথা</b><p>সহজ নিয়ম: এক দিক (এক সারি জিনিস) হলে flex, দুই দিক (সারি ও কলাম) হলে grid।</p></aside>
+</div></section><section class="module reveal lv-i" id="m09"><div class="mhead"><span class="num" aria-hidden="true">09</span><div><span class="badge">মডিউল 09 · মধ্যম</span><h2>রেসপন্সিভ ডিজাইন</h2></div></div><div class="body">
+<p>Tailwind <strong>মোবাইল-ফার্স্ট</strong>। প্রিফিক্সহীন ক্লাস সব স্ক্রিনে চলে। <code>md:</code>-এর মতো প্রিফিক্সের মানে <em>এই প্রস্থ ও তার বড়গুলোতে</em>। তাই <code>grid-cols-1 md:grid-cols-3</code> ফোনে এক কলাম, আর মাঝারি স্ক্রিন থেকে তিন কলাম।</p>
+<div class="tbl"><table><thead><tr><th>প্রিফিক্স</th><th>শুরু</th></tr></thead><tbody><tr><td>sm:</td><td>640px</td></tr><tr><td>md:</td><td>768px</td></tr><tr><td>lg:</td><td>1024px</td></tr><tr><td>xl:</td><td>1280px</td></tr><tr><td>2xl:</td><td>1536px</td></tr></tbody></table></div>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">চেষ্টা করুন ▶</button><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;div class="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 lg:grid-cols-4"&gt;
+  &lt;div class="border-4 border-black bg-pink-300 p-6 text-center font-bold"&gt;1&lt;/div&gt;
+  &lt;div class="border-4 border-black bg-sky-300 p-6 text-center font-bold"&gt;2&lt;/div&gt;
+  &lt;div class="border-4 border-black bg-lime-300 p-6 text-center font-bold"&gt;3&lt;/div&gt;
+  &lt;div class="border-4 border-black bg-yellow-300 p-6 text-center font-bold"&gt;4&lt;/div&gt;
+&lt;/div&gt;
+&lt;p class="p-4 text-lg font-black sm:text-2xl lg:text-4xl"&gt;This text grows with the screen&lt;/p&gt;</code></pre></figure><div class="demo"><div class="demo-bar">ফলাফল</div></div>
+<p>প্লেগ্রাউন্ডের <strong>ফোন, ট্যাবলেট, ডেস্কটপ</strong> বাটন চেপে ভিন্ন প্রস্থে লেআউট পরীক্ষা করুন।</p>
+<details class="ex"><summary data-show="সমাধান দেখুন" data-hide="সমাধান লুকান"><small>অনুশীলন</small><span>তিনটি বক্স ফোনে একটির নিচে একটি, আর বড় স্ক্রিনে পাশাপাশি বসান।</span></summary><figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">চেষ্টা করুন ▶</button><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;div class="grid grid-cols-1 gap-4 p-4 lg:grid-cols-3"&gt;
+  &lt;div class="border-4 border-black bg-pink-300 p-6"&gt;A&lt;/div&gt;
+  &lt;div class="border-4 border-black bg-sky-300 p-6"&gt;B&lt;/div&gt;
+  &lt;div class="border-4 border-black bg-lime-300 p-6"&gt;C&lt;/div&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">ফলাফল</div></div></details>
+<aside class="callout tip"><b>পরামর্শ</b><p>আগে ফোনের জন্য ডিজাইন করুন, তারপর বড় স্ক্রিন সুন্দর করতে <code>md:</code> ও <code>lg:</code> ক্লাস যোগ করুন।</p></aside>
+</div></section><section class="module reveal lv-i" id="m10"><div class="mhead"><span class="num" aria-hidden="true">10</span><div><span class="badge">মডিউল 10 · মধ্যম</span><h2>স্টেট ও ভ্যারিয়েন্ট</h2></div></div><div class="body">
+<p><strong>ভ্যারিয়েন্ট</strong> হলো এমন প্রিফিক্স যা কোনো নির্দিষ্ট অবস্থায় ক্লাস চালায়। <code>hover:bg-pink-300</code> মাউস ওপরে এলে, <code>focus:</code> ফোকাস হলে, <code>active:</code> চাপা অবস্থায়, <code>disabled:</code> নিষ্ক্রিয় কন্ট্রোলে কাজ করে।</p>
+<ul><li><strong>group</strong>: প্যারেন্টে <code>group</code> দিন, তারপর সন্তানে <code>group-hover:</code> দিয়ে স্টাইল করুন।</li><li><strong>peer</strong>: আগের সিবলিংয়ে <code>peer</code> দিন, তারপরেরটিতে <code>peer-checked:</code> দিয়ে স্টাইল করুন।</li><li><strong>অবস্থান</strong> ভ্যারিয়েন্ট: <code>first:</code>, <code>last:</code>, <code>odd:</code>, <code>even:</code>।</li><li><strong>ডার্ক মোড</strong>: <code>dark:bg-black</code> ডিফল্টে সিস্টেম সেটিং অনুসরণ করে।</li></ul>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">চেষ্টা করুন ▶</button><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;div class="flex flex-col gap-4 p-4"&gt;
+  &lt;button class="border-4 border-black bg-yellow-300 px-6 py-3 font-bold transition hover:bg-pink-300 focus:ring-4 focus:ring-sky-400 active:translate-y-1 disabled:opacity-50"&gt;
+    Hover, focus, press me
+  &lt;/button&gt;
+  &lt;div class="group border-4 border-black bg-white p-4"&gt;
+    &lt;p class="font-bold"&gt;Hover this card&lt;/p&gt;
+    &lt;p class="text-gray-500 group-hover:text-pink-600"&gt;I change when my parent is hovered&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;label class="flex items-center gap-2"&gt;
+    &lt;input type="checkbox" class="peer size-5"&gt;
+    &lt;span class="peer-checked:font-black peer-checked:text-green-600"&gt;Tick the box&lt;/span&gt;
+  &lt;/label&gt;
+  &lt;p class="bg-white p-3 text-black dark:bg-black dark:text-white"&gt;Light or dark, following your system&lt;/p&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">ফলাফল</div></div>
+<h3>ডার্ক মোড নিজে নিয়ন্ত্রণ করুন</h3>
+<p>বাটন দিয়ে ডার্ক মোড চালাতে চাইলে এক লাইনে <code>dark:</code>-কে পেজের <code>dark</code> ক্লাসের সঙ্গে জুড়ে দিন।</p>
+<figure class="code"><figcaption><span>CSS</span><span class="fa"><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="css">@import "tailwindcss";
+
+/* Switch dark mode with a "dark" class on &lt;html&gt; instead of the system setting */
+@custom-variant dark (&amp;:where(.dark, .dark *));</code></pre></figure>
+</div></section><section class="module reveal lv-i" id="m11"><div class="mhead"><span class="num" aria-hidden="true">11</span><div><span class="badge">মডিউল 11 · মধ্যম</span><h2>অ্যাডভান্সড ভ্যারিয়েন্ট ও কন্টেইনার কুয়েরি</h2></div></div><div class="body">
+<p>Tailwind v4-এ প্রায় প্রতিটি অবস্থার জন্য ভ্যারিয়েন্ট আছে। সবচেয়ে কাজের কয়েকটি:</p>
+<ul><li><code>has-checked:</code> সন্তানের অবস্থা দেখে <em>প্যারেন্টকে</em> স্টাইল করে, যেমন রেডিও বাছাই হলে কার্ড হাইলাইট হওয়া।</li><li><code>aria-pressed:</code>, <code>aria-expanded:</code>, <code>data-[state=open]:</code> অ্যাট্রিবিউট থেকে স্টাইল করে, UI লাইব্রেরির সঙ্গে মানানসই।</li><li><code>not-hover:</code> কোনো অবস্থা <em>না</em> থাকলে চলে।</li><li><code>placeholder:</code>, <code>selection:</code>, <code>file:</code>, <code>marker:</code>, <code>first-letter:</code>, <code>open:</code> এলিমেন্টের বিশেষ অংশ ধরে।</li><li><code>starting:</code> এলিমেন্ট প্রথম দেখা দেওয়ার সময়ের স্টাইল দেয়, প্রবেশ অ্যানিমেশনের জন্য।</li></ul>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">চেষ্টা করুন ▶</button><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;div class="flex flex-col gap-4 p-4"&gt;
+  &lt;label class="flex items-center gap-3 border-4 border-black bg-white p-3 has-checked:bg-lime-300"&gt;
+    &lt;input type="checkbox" class="size-5"&gt; The parent turns green when the box is ticked
+  &lt;/label&gt;
+  &lt;button aria-pressed="true" class="border-4 border-black bg-white px-4 py-2 font-bold aria-pressed:bg-pink-400"&gt;aria-pressed&lt;/button&gt;
+  &lt;div data-state="open" class="border-4 border-black bg-white p-3 data-[state=open]:bg-yellow-300"&gt;data-[state=open]&lt;/div&gt;
+  &lt;input placeholder="placeholder:italic" class="border-4 border-black p-2 placeholder:italic placeholder:text-gray-500 selection:bg-pink-300"&gt;
+  &lt;details class="border-4 border-black bg-white p-3 open:bg-sky-200"&gt;
+    &lt;summary class="cursor-pointer font-bold"&gt;open: variant (click me)&lt;/summary&gt;
+    Details content
+  &lt;/details&gt;
+  &lt;div class="@container"&gt;
+    &lt;div class="grid gap-2 @md:grid-cols-3"&gt;
+      &lt;div class="bg-pink-300 p-3"&gt;Container A&lt;/div&gt;
+      &lt;div class="bg-sky-300 p-3"&gt;Container B&lt;/div&gt;
+      &lt;div class="bg-lime-300 p-3"&gt;Container C&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">ফলাফল</div></div>
+<h3>কন্টেইনার কুয়েরি</h3>
+<p>মিডিয়া কুয়েরি দেখে <em>স্ক্রিন</em>। <strong>কন্টেইনার কুয়েরি</strong> দেখে <em>প্যারেন্ট</em>, তাই কম্পোনেন্ট যতটুকু জায়গা পায় সে অনুযায়ী মানিয়ে নেয়। প্যারেন্টে <code>@container</code> দিন এবং সন্তানে <code>@sm:</code>, <code>@md:</code>, <code>@lg:</code> ব্যবহার করুন।</p>
+<aside class="callout take"><b>মূল কথা</b><p>পেজ লেআউটের জন্য রেসপন্সিভ প্রিফিক্স, আর পুনর্ব্যবহারযোগ্য কম্পোনেন্টের জন্য কন্টেইনার কুয়েরি, যেমন যে কার্ড কখনো সাইডবারে, কখনো চওড়া কলামে বসতে পারে।</p></aside>
+</div></section><section class="module reveal lv-i" id="m12"><div class="mhead"><span class="num" aria-hidden="true">12</span><div><span class="badge">মডিউল 12 · মধ্যম</span><h2>ট্রানজিশন, ট্রান্সফর্ম, অ্যানিমেশন</h2></div></div><div class="body">
+<p>পরিবর্তন মসৃণ করতে <code>transition</code> দিন, গতি ঠিক করুন <code>duration-300</code> দিয়ে, আর <code>hover:scale-110</code>-এর মতো ভ্যারিয়েন্ট দিয়ে পরিবর্তনটি বলুন।</p>
+<div class="tbl"><table><thead><tr><th>ক্লাস</th><th>প্রভাব</th></tr></thead><tbody><tr><td>transition, duration-300, ease-out</td><td>পরিবর্তন অ্যানিমেট করা, সময় ও বক্ররেখা ঠিক করা</td></tr><tr><td>scale-110, rotate-6, -translate-y-1</td><td>আকার বদল, ঘোরানো, সরানো</td></tr><tr><td>animate-spin, animate-bounce, animate-pulse</td><td>বিল্ট-ইন লুপ অ্যানিমেশন</td></tr></tbody></table></div>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">চেষ্টা করুন ▶</button><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;div class="flex items-center gap-6 p-6"&gt;
+  &lt;div class="size-24 border-4 border-black bg-pink-300 transition duration-300 hover:-rotate-6 hover:scale-110 hover:bg-yellow-300"&gt;&lt;/div&gt;
+  &lt;div class="size-24 animate-bounce border-4 border-black bg-sky-300"&gt;&lt;/div&gt;
+  &lt;div class="size-10 animate-spin rounded-full border-4 border-black border-t-transparent"&gt;&lt;/div&gt;
+  &lt;div class="size-10 animate-pulse bg-lime-300"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">ফলাফল</div></div>
+<aside class="callout warn"><b>সতর্কতা</b><p>অতিরিক্ত নড়াচড়ায় কারও কারও অসুস্থ লাগে। তাদের সিস্টেম সেটিং মানতে <code>motion-reduce:animate-none</code> বা <code>motion-reduce:transition-none</code> যোগ করুন।</p></aside>
+</div></section><section class="module reveal lv-i" id="m13"><div class="mhead"><span class="num" aria-hidden="true">13</span><div><span class="badge">মডিউল 13 · মধ্যম</span><h2>ফর্ম, টেবিল ও লিস্ট</h2></div></div><div class="body">
+<p>Preflight ফর্ম কন্ট্রোল, টেবিল ও লিস্টের ডিফল্ট চেহারা সরিয়ে দেয়, তাই স্টাইল নিজে করতে হয়। ইনপুটে বর্ডার, প্যাডিং ও ফোকাস স্টাইল লাগে। লিস্টে মার্কার ফেরাতে <code>list-disc</code> বা <code>list-decimal</code> লাগে।</p>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">চেষ্টা করুন ▶</button><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;form class="max-w-sm space-y-4 border-4 border-black bg-white p-6"&gt;
+  &lt;label class="block"&gt;
+    &lt;span class="font-bold"&gt;Email&lt;/span&gt;
+    &lt;input type="email" placeholder="you@example.com" class="mt-1 block w-full border-4 border-black p-2 focus:bg-yellow-100 focus:ring-4 focus:ring-sky-400 focus:outline-none invalid:border-red-500"&gt;
+  &lt;/label&gt;
+  &lt;label class="block"&gt;
+    &lt;span class="font-bold"&gt;Role&lt;/span&gt;
+    &lt;select class="mt-1 block w-full border-4 border-black bg-white p-2"&gt;
+      &lt;option&gt;Student&lt;/option&gt;
+      &lt;option&gt;Teacher&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/label&gt;
+  &lt;label class="flex items-center gap-2"&gt;
+    &lt;input type="checkbox" class="size-5 accent-pink-500"&gt; Remember me
+  &lt;/label&gt;
+  &lt;button type="button" class="w-full border-4 border-black bg-pink-400 py-2 font-bold shadow-[4px_4px_0_#111] disabled:opacity-50"&gt;Sign in&lt;/button&gt;
+&lt;/form&gt;</code></pre></figure><div class="demo"><div class="demo-bar">ফলাফল</div></div>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">চেষ্টা করুন ▶</button><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;div class="space-y-6 p-4"&gt;
+  &lt;table class="w-full border-4 border-black text-left"&gt;
+    &lt;thead class="bg-yellow-300"&gt;
+      &lt;tr&gt;&lt;th class="p-3"&gt;Name&lt;/th&gt;&lt;th class="p-3"&gt;GPA&lt;/th&gt;&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody class="divide-y-2 divide-black bg-white"&gt;
+      &lt;tr class="odd:bg-sky-100 hover:bg-pink-100"&gt;&lt;td class="p-3"&gt;Ayesha&lt;/td&gt;&lt;td class="p-3"&gt;3.80&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr class="odd:bg-sky-100 hover:bg-pink-100"&gt;&lt;td class="p-3"&gt;Tanvir&lt;/td&gt;&lt;td class="p-3"&gt;3.40&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr class="odd:bg-sky-100 hover:bg-pink-100"&gt;&lt;td class="p-3"&gt;Nusrat&lt;/td&gt;&lt;td class="p-3"&gt;3.95&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+  &lt;ul class="list-disc pl-6 marker:text-pink-500"&gt;
+    &lt;li&gt;Bullets come back with list-disc&lt;/li&gt;
+    &lt;li&gt;marker: colors the bullet&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">ফলাফল</div></div>
+<p>তৈরি বেস চান? অফিসিয়াল <strong>forms প্লাগইন</strong> ইনপুট ও সিলেক্টে যুক্তিসঙ্গত ডিফল্ট স্টাইল দেয়, যা পরে ইউটিলিটি দিয়ে বদলানো যায়।</p>
+<figure class="code"><figcaption><span>CSS</span><span class="fa"><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="css">/* npm install -D @tailwindcss/forms */
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";</code></pre></figure>
+<div class="tbl"><table><thead><tr><th>ক্লাস</th><th>প্রভাব</th></tr></thead><tbody><tr><td>accent-pink-500</td><td>চেকবক্স, রেডিও ও রেঞ্জ ইনপুটের রং</td></tr><tr><td>invalid:, required:, disabled:, read-only:</td><td>ভ্যালিডেশন বা অবস্থা অনুযায়ী স্টাইল</td></tr><tr><td>divide-y-2 divide-black</td><td>সন্তান বা টেবিল সারির মাঝে রেখা</td></tr><tr><td>odd:, even:</td><td>জেব্রা স্ট্রাইপিং</td></tr><tr><td>list-disc, list-decimal, list-inside, marker:</td><td>লিস্ট মার্কার ও তার রং</td></tr></tbody></table></div>
+<aside class="callout tip"><b>পরামর্শ</b><p><code>&lt;label&gt;</code>-কে সবসময় ইনপুটের সঙ্গে যুক্ত করুন, ইনপুটকে মুড়ে বা <code>for</code> ও <code>id</code> দিয়ে। প্লেসহোল্ডার লেবেলের বিকল্প নয়।</p></aside>
+</div></section><section class="module reveal lv-i" id="m14"><div class="mhead"><span class="num" aria-hidden="true">14</span><div><span class="badge">মডিউল 14 · মধ্যম</span><h2>টেক্সট, মিডিয়া ও কনটেন্ট ইউটিলিটি</h2></div></div><div class="body">
+<p>ছোট ছোট কিছু ইউটিলিটি, যেগুলো বারবার দরকার হবে।</p>
+<div class="tbl"><table><thead><tr><th>ক্লাস</th><th>প্রভাব</th></tr></thead><tbody><tr><td>truncate, line-clamp-2, whitespace-nowrap, break-words</td><td>লম্বা লেখা সামলানো</td></tr><tr><td>text-balance, text-pretty</td><td>হেডিং ও অনুচ্ছেদে সুন্দর লাইন ভাঙা</td></tr><tr><td>columns-2, columns-3</td><td>সংবাদপত্রের মতো কলাম</td></tr><tr><td>object-cover, object-contain, rounded-full</td><td>ছবিকে বক্সের ভেতরে বসানো</td></tr><tr><td>snap-x, snap-mandatory, snap-center</td><td>ক্যারোসেলের জন্য স্ক্রল স্ন্যাপ</td></tr><tr><td>scroll-smooth, scroll-mt-16</td><td>মসৃণ অ্যাংকর স্ক্রল ও স্টিকি হেডারের নিচে অফসেট</td></tr><tr><td>cursor-pointer, select-none, pointer-events-none</td><td>কার্সর ও ইন্টারঅ্যাকশন</td></tr><tr><td>sr-only, not-sr-only</td><td>শুধু স্ক্রিন রিডারের জন্য দৃশ্যমান</td></tr><tr><td>rotate-x-12, perspective-distant, transform-3d</td><td>3D ট্রান্সফর্ম (v4-এ নতুন)</td></tr></tbody></table></div>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">চেষ্টা করুন ▶</button><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;div class="grid gap-4 p-4 sm:grid-cols-2"&gt;
+  &lt;p class="line-clamp-2 border-4 border-black bg-white p-3"&gt;Tailwind can cut long text after a chosen number of lines and add an ellipsis. This sentence keeps going so that the third line never shows, which is exactly what line-clamp-2 is for.&lt;/p&gt;
+  &lt;p class="columns-2 gap-6 border-4 border-black bg-white p-3 text-sm"&gt;Text can flow into newspaper style columns with one class. This paragraph is long enough to fill both columns so you can see the effect clearly in the result below the code.&lt;/p&gt;
+  &lt;div class="flex snap-x snap-mandatory gap-3 overflow-x-auto border-4 border-black bg-white p-3 sm:col-span-2"&gt;
+    &lt;div class="h-20 w-40 shrink-0 snap-center bg-pink-300"&gt;&lt;/div&gt;
+    &lt;div class="h-20 w-40 shrink-0 snap-center bg-sky-300"&gt;&lt;/div&gt;
+    &lt;div class="h-20 w-40 shrink-0 snap-center bg-lime-300"&gt;&lt;/div&gt;
+    &lt;div class="h-20 w-40 shrink-0 snap-center bg-yellow-300"&gt;&lt;/div&gt;
+    &lt;div class="h-20 w-40 shrink-0 snap-center bg-orange-300"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">ফলাফল</div></div>
+</div></section><section class="module reveal lv-a" id="m15"><div class="mhead"><span class="num" aria-hidden="true">15</span><div><span class="badge">মডিউল 15 · উন্নত</span><h2>কাস্টমাইজেশন: থিম, arbitrary ভ্যালু, @apply</h2></div></div><div class="body">
+<p>Tailwind v4 কনফিগার হয় <strong>CSS-এর ভেতরেই</strong>। <code>@theme</code>-এর ভেতরের ভেরিয়েবল ইউটিলিটি হয়ে যায়: <code>--color-brand</code> থেকে <code>bg-brand</code> ও <code>text-brand</code>, <code>--shadow-brutal</code> থেকে <code>shadow-brutal</code>, আর <code>--breakpoint-3xl</code> থেকে <code>3xl:</code> প্রিফিক্স।</p>
+<figure class="code"><figcaption><span>CSS</span><span class="fa"><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="css">@import "tailwindcss";
+
+@theme {
+  --color-brand: #ff7ab6;
+  --color-ink: #111111;
+  --font-display: "Archivo Black", sans-serif;
+  --shadow-brutal: 6px 6px 0 #111;
+  --breakpoint-3xl: 120rem;
+}</code></pre></figure>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">চেষ্টা করুন ▶</button><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;style type="text/tailwindcss"&gt;
+  @theme {
+    --color-brand: #ff7ab6;
+    --shadow-brutal: 6px 6px 0 #111;
+  }
+&lt;/style&gt;
+&lt;button class="border-4 border-black bg-brand px-6 py-3 font-bold shadow-brutal"&gt;Custom theme&lt;/button&gt;</code></pre></figure><div class="demo"><div class="demo-bar">ফলাফল</div></div>
+<h3>নিজের ইউটিলিটি ও কম্পোনেন্ট</h3>
+<p><code>@utility</code> নতুন ইউটিলিটি ক্লাস বানায়। <code>@apply</code> ইউটিলিটিগুলো আপনার নিজের ক্লাসে বসায়, থার্ড পার্টি উইজেটের মতো যেখানে টেমপ্লেটে ক্লাস দেওয়া যায় না সেখানে কাজে লাগে।</p>
+<figure class="code"><figcaption><span>CSS</span><span class="fa"><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="css">@utility tab-4 {
+  tab-size: 4;
+}
+
+.btn {
+  @apply border-4 border-black bg-brand px-6 py-3 font-bold;
+}</code></pre></figure>
+<aside class="callout tip"><b>পরামর্শ</b><p>অনেক <code>@apply</code> ক্লাস জমানোর চেয়ে ফ্রেমওয়ার্কের কম্পোনেন্ট পুনর্ব্যবহার করা ভালো। মার্কআপে ইউটিলিটি থাকাই Tailwind-এর মূল কথা।</p></aside>
+</div></section><section class="module reveal lv-a" id="m16"><div class="mhead"><span class="num" aria-hidden="true">16</span><div><span class="badge">মডিউল 16 · উন্নত</span><h2>কনফিগারেশন বিস্তারিত</h2></div></div><div class="body">
+<p>সবকিছু আপনার CSS ফাইলেই কনফিগার হয়। আসল প্রজেক্টে এই ডিরেক্টিভগুলো পাবেন।</p>
+<ul><li><code>@layer base</code> ও <code>@layer components</code> ক্যাসকেডের সঠিক জায়গায়, ইউটিলিটির নিচে, নিজের স্টাইল যোগ করে।</li><li><code>@source</code> Tailwind-কে বাড়তি ফোল্ডার স্ক্যান করতে বলে, যেমন <code>node_modules</code>-এর UI লাইব্রেরি।</li><li><code>prefix(tw)</code> প্রতিটি ক্লাস <code>tw:</code> দিয়ে শুরু করে, বিদ্যমান CSS-এর সঙ্গে সংঘাত এড়াতে।</li><li><code>important</code> ইউটিলিটিকে অন্য CSS-এর ওপর জেতায়। শেষে <code>!</code> একটি ক্লাসের জন্য তা করে, যেমন <code>bg-red-500!</code>।</li><li><code>@plugin</code> অফিসিয়াল প্লাগইন লোড করে: Typography (প্রবন্ধের লেখার জন্য <code>prose</code>) ও Forms।</li><li><code>@custom-variant</code> নিজের ভ্যারিয়েন্ট বানায়।</li><li><code>@reference</code> স্কোপড কম্পোনেন্ট স্টাইলকে (Vue, Svelte) আপনার থিম ও <code>@apply</code> ব্যবহার করতে দেয়।</li></ul>
+<figure class="code"><figcaption><span>CSS</span><span class="fa"><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="css">@import "tailwindcss";
+
+/* Base styles and components live in cascade layers, so utilities can still override them */
+@layer base {
+  h1 {
+    @apply text-3xl font-black;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply border-4 border-black bg-yellow-300 px-5 py-2 font-bold;
+  }
+}</code></pre></figure>
+<figure class="code"><figcaption><span>CSS</span><span class="fa"><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="css">@import "tailwindcss" prefix(tw);
+
+/* Scan an extra folder for class names */
+@source "../node_modules/@my-company/ui-kit";
+
+/* Official plugins */
+@plugin "@tailwindcss/typography";
+
+/* Your own variant, used as midnight:bg-black */
+@custom-variant midnight (&amp;:where([data-theme="midnight"], [data-theme="midnight"] *));
+
+@theme {
+  /* Remove the default palette and keep only your own colors */
+  --color-*: initial;
+  --color-brand: #ff7ab6;
+  --color-ink: #111111;
+}</code></pre></figure>
+<h3>ডার্ক মোড টগল বাটন</h3>
+<p>স্টেট মডিউলের <code>@custom-variant dark</code> লাইনের সঙ্গে এই স্ক্রিপ্ট <code>dark</code> ক্লাস যোগ করে, পছন্দ মনে রাখে এবং প্রথমবার সিস্টেম সেটিং মানে।</p>
+<figure class="code"><figcaption><span>JavaScript</span><span class="fa"><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="js">const root = document.documentElement;
+const saved = localStorage.getItem("theme");
+
+if (saved === "dark" || (!saved &amp;&amp; matchMedia("(prefers-color-scheme: dark)").matches)) {
+  root.classList.add("dark");
+}
+
+document.querySelector("#toggle").addEventListener("click", () =&gt; {
+  const isDark = root.classList.toggle("dark");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+});</code></pre></figure>
+<aside class="callout warn"><b>সতর্কতা</b><p><code>--color-*: initial;</code> দিয়ে প্যালেট রিসেট করলে সব ডিফল্ট রং মুছে যায়। তখন <code>bg-pink-400</code>-এর মতো ক্লাস নিজের রং ঠিক না করা পর্যন্ত কাজ করবে না।</p></aside>
+</div></section><section class="module reveal lv-a" id="m17"><div class="mhead"><span class="num" aria-hidden="true">17</span><div><span class="badge">মডিউল 17 · উন্নত</span><h2>পুনর্ব্যবহার ও অ্যাক্সেসিবিলিটি</h2></div></div><div class="body">
+<p>লম্বা ক্লাসের তালিকা ভয়ের মনে হলেও সামলানো সহজ। একই প্যাটার্ন কয়েকবারের বেশি লাগলে ফ্রেমওয়ার্কে (React, Vue, Svelte বা টেমপ্লেট পার্শিয়াল) সেটিকে <strong>কম্পোনেন্ট</strong> বানান। তখন ক্লাসগুলো এক জায়গায় থাকে।</p>
+<figure class="code"><figcaption><span>JavaScript</span><span class="fa"><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="js">export function Button({ children }) {
+  return (
+    &lt;button className="border-4 border-black bg-yellow-300 px-5 py-2 font-bold hover:bg-pink-300"&gt;
+      {children}
+    &lt;/button&gt;
+  );
+}</code></pre></figure>
+<h3>অ্যাক্সেসিবিলিটি চেকলিস্ট</h3>
+<ul><li>ARIA যোগ করার আগে আসল এলিমেন্ট (<code>button</code>, <code>a</code>, <code>label</code>) ব্যবহার করুন।</li><li>দৃশ্যমান ফোকাস স্টাইল রাখুন, যেমন <code>focus-visible:ring-4</code>।</li><li>লেখা ও ব্যাকগ্রাউন্ডের রঙের কনট্রাস্ট দেখুন।</li><li>চোখে না দেখিয়ে স্ক্রিন রিডারের জন্য লেখা রাখতে <code>sr-only</code> ব্যবহার করুন।</li><li><code>motion-reduce:</code> মেনে চলুন।</li></ul>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">চেষ্টা করুন ▶</button><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;div class="flex items-center gap-4 p-4"&gt;
+  &lt;button type="button" class="border-4 border-black bg-yellow-300 px-5 py-2 font-bold focus-visible:ring-4 focus-visible:ring-sky-500 motion-reduce:transition-none"&gt;
+    Save
+  &lt;/button&gt;
+  &lt;span class="sr-only"&gt;Only screen readers read this text&lt;/span&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">ফলাফল</div></div>
+<aside class="callout take"><b>মূল কথা</b><p>ভালো Tailwind মানে ভালো HTML আর ক্লাস। যেকোনো ক্লাসের নামের চেয়ে সেম্যান্টিক ট্যাগ ও ফোকাস স্টেট বেশি গুরুত্বপূর্ণ।</p></aside>
+</div></section><section class="module reveal lv-a" id="m18"><div class="mhead"><span class="num" aria-hidden="true">18</span><div><span class="badge">মডিউল 18 · উন্নত</span><h2>ফ্রেমওয়ার্ক, টুলিং ও প্রোডাকশন</h2></div></div><div class="body">
+<p>বেশিরভাগ ফ্রেমওয়ার্ক Vite ব্যবহার করে, তাই মডিউল ০২-এর সেটআপ প্রায় সর্বত্র চলে। <code>@tailwindcss/vite</code> প্লাগইন যোগ করুন, তারপর মূল CSS-এ <code>@import "tailwindcss";</code> লিখুন।</p>
+<div class="tbl"><table><thead><tr><th>ফ্রেমওয়ার্ক</th><th>Tailwind v4 যোগ করার উপায়</th></tr></thead><tbody><tr><td>React, Vue, Svelte, Astro, SvelteKit, Laravel, Nuxt</td><td>Vite প্লাগইন <code>@tailwindcss/vite</code></td></tr><tr><td>Next.js, Angular</td><td>PostCSS কনফিগে <code>@tailwindcss/postcss</code></td></tr><tr><td>সাধারণ HTML বা যেকোনো ব্যাকএন্ড</td><td>Tailwind CLI চালিয়ে আউটপুট ফাইল যুক্ত করুন</td></tr></tbody></table></div>
+<figure class="code"><figcaption><span>Shell</span><span class="fa"><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="sh">npm create vite@latest my-app -- --template react
+cd my-app
+npm install tailwindcss @tailwindcss/vite
+# then add @import "tailwindcss"; to src/index.css</code></pre></figure>
+<figure class="code"><figcaption><span>JavaScript</span><span class="fa"><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="js">// vite.config.js (React)
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+});</code></pre></figure>
+<figure class="code"><figcaption><span>JavaScript</span><span class="fa"><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="js">// postcss.config.mjs (Next.js, after: npm install tailwindcss @tailwindcss/postcss postcss)
+const config = {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+
+export default config;</code></pre></figure>
+<h3>সময় বাঁচানো টুল</h3>
+<ul><li>VS Code-এর <em>Tailwind CSS IntelliSense</em> এক্সটেনশন: অটোকমপ্লিট, হোভার প্রিভিউ ও এরর।</li><li><code>prettier-plugin-tailwindcss</code> ক্লাসের নাম সামঞ্জস্যপূর্ণ ক্রমে সাজায়।</li><li><code>clsx</code> ও <code>tailwind-merge</code> শর্তসাপেক্ষ ক্লাস তালিকা বানায় এবং <code>px-4</code> বনাম <code>px-6</code>-এর মতো সংঘাত মেটায়।</li></ul>
+<figure class="code"><figcaption><span>JavaScript</span><span class="fa"><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="js">// .prettierrc (npm install -D prettier prettier-plugin-tailwindcss)
+{
+  "plugins": ["prettier-plugin-tailwindcss"]
+}</code></pre></figure>
+<figure class="code"><figcaption><span>JavaScript</span><span class="fa"><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="js">// npm install clsx tailwind-merge
+import { clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export const cn = (...inputs) =&gt; twMerge(clsx(inputs));
+
+// cn("px-4 py-2", isActive &amp;&amp; "bg-pink-400", "px-6")  =&gt;  "py-2 bg-pink-400 px-6"</code></pre></figure>
+<h3>সবচেয়ে চেনা ভুল</h3>
+<figure class="code"><figcaption><span>JavaScript</span><span class="fa"><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="js">// Wrong: Tailwind cannot see a class name built from pieces
+const bad = `bg-${color}-500`;
+
+// Right: write complete class names so they can be found
+const good = color === "pink" ? "bg-pink-500" : "bg-sky-500";</code></pre></figure>
+<h3>প্রোডাকশনে পাঠানো</h3>
+<p>Tailwind শুধু যে ক্লাস খুঁজে পায় সেগুলোই বানায়, তাই আউটপুট ছোট হয়। মিনিফাই করা ফাইল বানিয়ে সেটি ডিপ্লয় করুন।</p>
+<figure class="code"><figcaption><span>Shell</span><span class="fa"><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="sh">npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css --minify</code></pre></figure>
+<aside class="callout tip"><b>পরামর্শ</b><p>ক্লাস কাজ না করলে: বানান দেখুন, ফাইল স্ক্যান হচ্ছে কি না দেখুন (<code>@source</code>), CSS ফাইল যুক্ত আছে কি না নিশ্চিত করুন, আর DevTools-এ এলিমেন্ট ইন্সপেক্ট করে দেখুন কোন রুল জিতছে।</p></aside>
+</div></section><section class="module reveal lv-a" id="m19"><div class="mhead"><span class="num" aria-hidden="true">19</span><div><span class="badge">মডিউল 19 · উন্নত</span><h2>প্রজেক্ট: একটি ল্যান্ডিং পেজ বানান</h2></div></div><div class="body">
+<p>এবার সব মিলিয়ে ফেলার সময়: স্পেসিং, রং, বর্ডার, ফ্লেক্সবক্স, গ্রিড, রেসপন্সিভ প্রিফিক্স ও হোভার স্টেট। এই পেজে একটি হেডার, একটি হিরো ও তিন কার্ডের ফিচার সারি আছে।</p>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">চেষ্টা করুন ▶</button><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;header class="flex items-center justify-between border-b-4 border-black bg-yellow-300 px-6 py-4"&gt;
+  &lt;span class="text-xl font-black"&gt;PIXELNEST&lt;/span&gt;
+  &lt;nav class="hidden gap-6 font-semibold md:flex"&gt;
+    &lt;a href="#" class="hover:underline"&gt;Features&lt;/a&gt;
+    &lt;a href="#" class="hover:underline"&gt;Pricing&lt;/a&gt;
+    &lt;a href="#" class="hover:underline"&gt;Contact&lt;/a&gt;
+  &lt;/nav&gt;
+  &lt;a href="#" class="border-4 border-black bg-white px-4 py-2 font-bold shadow-[4px_4px_0_#111] transition hover:translate-x-1 hover:translate-y-1 hover:shadow-none"&gt;Sign up&lt;/a&gt;
+&lt;/header&gt;
+
+&lt;section class="bg-pink-300 px-6 py-16 text-center"&gt;
+  &lt;h1 class="mx-auto max-w-2xl text-4xl font-black leading-tight sm:text-6xl"&gt;Build fast. Look &lt;span class="bg-yellow-300 px-2"&gt;bold&lt;/span&gt;.&lt;/h1&gt;
+  &lt;p class="mx-auto mt-4 max-w-lg text-lg"&gt;A tiny landing page made only with Tailwind utility classes.&lt;/p&gt;
+  &lt;a href="#" class="mt-8 inline-block border-4 border-black bg-black px-8 py-4 text-lg font-bold text-white"&gt;Get started&lt;/a&gt;
+&lt;/section&gt;
+
+&lt;section class="grid gap-6 p-6 sm:grid-cols-3"&gt;
+  &lt;article class="border-4 border-black bg-sky-300 p-6"&gt;
+    &lt;h3 class="text-xl font-extrabold"&gt;Fast&lt;/h3&gt;
+    &lt;p class="mt-2"&gt;No CSS files to juggle.&lt;/p&gt;
+  &lt;/article&gt;
+  &lt;article class="border-4 border-black bg-lime-300 p-6"&gt;
+    &lt;h3 class="text-xl font-extrabold"&gt;Responsive&lt;/h3&gt;
+    &lt;p class="mt-2"&gt;Prefixes like md: adapt the layout.&lt;/p&gt;
+  &lt;/article&gt;
+  &lt;article class="border-4 border-black bg-orange-300 p-6"&gt;
+    &lt;h3 class="text-xl font-extrabold"&gt;Themeable&lt;/h3&gt;
+    &lt;p class="mt-2"&gt;Change tokens in one place.&lt;/p&gt;
+  &lt;/article&gt;
+&lt;/section&gt;</code></pre></figure><div class="demo"><div class="demo-bar">ফলাফল</div></div>
+<h3>এবার আপনার পালা</h3>
+<ul><li><strong>চেষ্টা করুন</strong> চেপে কোডটি প্লেগ্রাউন্ডে নিন।</li><li>রং ও লেখা নিজের ব্র্যান্ড অনুযায়ী বদলান।</li><li><code>grid</code> ও <code>sm:grid-cols-3</code> দিয়ে একটি প্রাইসিং সেকশন যোগ করুন।</li><li>ফুটার যোগ করে ফোন বাটন দিয়ে পরীক্ষা করুন।</li><li>CLI বা Vite সেটআপ দিয়ে এটি আসল প্রজেক্টে নিয়ে যান।</li></ul>
+<aside class="callout take"><b>মূল কথা</b><p>ছোট ছোট আসল পেজ বানানোই শেখার দ্রুততম উপায়। পছন্দের একটি সাইট এক সেকশন করে নতুন করে বানান।</p></aside>
+</div></section><section class="module reveal lv-a" id="m20"><div class="mhead"><span class="num" aria-hidden="true">20</span><div><span class="badge">মডিউল 20 · উন্নত</span><h2>প্রজেক্ট: প্রাইসিং পেজ বানান</h2></div></div><div class="body">
+<p>প্রাইসিং সেকশন আপনার গ্রিড, স্পেসিং, হায়ারার্কি ও হোভার দক্ষতা যাচাই করে। তিনটি প্ল্যান রেসপন্সিভ গ্রিডে বসে, মাঝের প্ল্যানটি উঁচু ও হাইলাইট করা, আর টিক চিহ্ন আসে <code>before:</code> ভ্যারিয়েন্ট ও <code>content-['✓']</code> থেকে।</p>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">চেষ্টা করুন ▶</button><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;section class="bg-yellow-200 px-6 py-12"&gt;
+  &lt;h2 class="mb-10 text-center text-4xl font-black"&gt;Pick a plan&lt;/h2&gt;
+  &lt;div class="mx-auto grid max-w-5xl gap-8 md:grid-cols-3"&gt;
+    &lt;div class="border-4 border-black bg-white p-6"&gt;
+      &lt;h3 class="text-xl font-extrabold"&gt;Free&lt;/h3&gt;
+      &lt;p class="mt-2 text-5xl font-black"&gt;$0&lt;/p&gt;
+      &lt;ul class="mt-4 space-y-2"&gt;
+        &lt;li class="before:mr-2 before:content-['✓']"&gt;1 project&lt;/li&gt;
+        &lt;li class="before:mr-2 before:content-['✓']"&gt;Community help&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;a href="#" class="mt-6 block border-4 border-black bg-white py-2 text-center font-bold hover:bg-yellow-300"&gt;Start free&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class="relative border-4 border-black bg-pink-300 p-6 shadow-[8px_8px_0_#111] md:-translate-y-4"&gt;
+      &lt;span class="absolute -top-4 left-1/2 -translate-x-1/2 border-4 border-black bg-yellow-300 px-3 text-sm font-black"&gt;POPULAR&lt;/span&gt;
+      &lt;h3 class="text-xl font-extrabold"&gt;Pro&lt;/h3&gt;
+      &lt;p class="mt-2 text-5xl font-black"&gt;$12&lt;span class="text-base font-bold"&gt;/mo&lt;/span&gt;&lt;/p&gt;
+      &lt;ul class="mt-4 space-y-2"&gt;
+        &lt;li class="before:mr-2 before:content-['✓']"&gt;Unlimited projects&lt;/li&gt;
+        &lt;li class="before:mr-2 before:content-['✓']"&gt;Priority support&lt;/li&gt;
+        &lt;li class="before:mr-2 before:content-['✓']"&gt;Custom domain&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;a href="#" class="mt-6 block border-4 border-black bg-black py-2 text-center font-bold text-white hover:bg-white hover:text-black"&gt;Go Pro&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class="border-4 border-black bg-white p-6"&gt;
+      &lt;h3 class="text-xl font-extrabold"&gt;Team&lt;/h3&gt;
+      &lt;p class="mt-2 text-5xl font-black"&gt;$39&lt;span class="text-base font-bold"&gt;/mo&lt;/span&gt;&lt;/p&gt;
+      &lt;ul class="mt-4 space-y-2"&gt;
+        &lt;li class="before:mr-2 before:content-['✓']"&gt;10 seats&lt;/li&gt;
+        &lt;li class="before:mr-2 before:content-['✓']"&gt;Shared workspace&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;a href="#" class="mt-6 block border-4 border-black bg-white py-2 text-center font-bold hover:bg-yellow-300"&gt;Contact us&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre></figure><div class="demo"><div class="demo-bar">ফলাফল</div></div>
+<h3>যা লক্ষ করবেন</h3>
+<ul><li><code>md:grid-cols-3</code> ফোনে প্ল্যান একটির নিচে একটি, আর বড় স্ক্রিনে তিনটি পাশাপাশি রাখে।</li><li>জনপ্রিয় প্ল্যানে <code>relative</code> ও <code>absolute</code> ব্যাজ আছে, আর <code>md:-translate-y-4</code> তাকে শুধু বড় স্ক্রিনে ওপরে তোলে।</li><li>বাটনের হোভারে <code>hover:bg-*</code> ও <code>hover:text-*</code> একসঙ্গে ব্যবহার হয়েছে।</li></ul>
+<h3>এবার আপনার পালা</h3>
+<ul><li>প্রতিটি দামের নিচে মাসিক ও বার্ষিক লেবেল যোগ করুন।</li><li>চতুর্থ প্ল্যান যোগ করে <code>lg:grid-cols-4</code>-এ যান।</li><li><code>@theme</code> দিয়ে নিজের ব্র্যান্ডের রং দিন।</li></ul>
+</div></section><section class="module reveal lv-a" id="m21"><div class="mhead"><span class="num" aria-hidden="true">21</span><div><span class="badge">মডিউল 21 · উন্নত</span><h2>প্রজেক্ট: ড্যাশবোর্ড বানান</h2></div></div><div class="body">
+<p>ড্যাশবোর্ডে সবকিছু মেলে: arbitrary গ্রিডে সাইডবার ও কনটেন্ট এলাকা, স্ট্যাট কার্ড, ফ্লেক্স আইটেম ও উচ্চতার ভগ্নাংশে বানানো সরল বার চার্ট, এবং ডিভাইডার ও হোভার সারিসহ ডেটা টেবিল।</p>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">চেষ্টা করুন ▶</button><button class="copy" type="button">কপি</button></span></figcaption><pre><code data-lang="html">&lt;div class="grid min-h-[26rem] grid-cols-[10rem_1fr] border-4 border-black bg-white"&gt;
+  &lt;aside class="border-r-4 border-black bg-yellow-300 p-4"&gt;
+    &lt;p class="mb-4 text-xl font-black"&gt;DASH&lt;/p&gt;
+    &lt;nav class="flex flex-col gap-2 font-semibold"&gt;
+      &lt;a href="#" class="border-2 border-black bg-white px-3 py-2"&gt;Overview&lt;/a&gt;
+      &lt;a href="#" class="px-3 py-2 hover:bg-white"&gt;Orders&lt;/a&gt;
+      &lt;a href="#" class="px-3 py-2 hover:bg-white"&gt;Customers&lt;/a&gt;
+      &lt;a href="#" class="px-3 py-2 hover:bg-white"&gt;Settings&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/aside&gt;
+  &lt;main class="space-y-6 p-6"&gt;
+    &lt;h1 class="text-3xl font-black"&gt;Overview&lt;/h1&gt;
+    &lt;div class="grid gap-4 sm:grid-cols-3"&gt;
+      &lt;div class="border-4 border-black bg-pink-300 p-4"&gt;&lt;p class="text-sm font-bold uppercase"&gt;Revenue&lt;/p&gt;&lt;p class="text-3xl font-black"&gt;$12.4k&lt;/p&gt;&lt;/div&gt;
+      &lt;div class="border-4 border-black bg-sky-300 p-4"&gt;&lt;p class="text-sm font-bold uppercase"&gt;Orders&lt;/p&gt;&lt;p class="text-3xl font-black"&gt;318&lt;/p&gt;&lt;/div&gt;
+      &lt;div class="border-4 border-black bg-lime-300 p-4"&gt;&lt;p class="text-sm font-bold uppercase"&gt;Visitors&lt;/p&gt;&lt;p class="text-3xl font-black"&gt;9,020&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="flex h-32 items-end gap-2 border-4 border-black bg-white p-3"&gt;
+      &lt;div class="h-1/3 flex-1 bg-pink-400"&gt;&lt;/div&gt;
+      &lt;div class="h-1/2 flex-1 bg-pink-400"&gt;&lt;/div&gt;
+      &lt;div class="h-2/3 flex-1 bg-pink-400"&gt;&lt;/div&gt;
+      &lt;div class="h-1/2 flex-1 bg-pink-400"&gt;&lt;/div&gt;
+      &lt;div class="h-5/6 flex-1 bg-pink-400"&gt;&lt;/div&gt;
+      &lt;div class="h-full flex-1 bg-yellow-300"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;table class="w-full border-4 border-black text-left text-sm"&gt;
+      &lt;thead class="bg-yellow-300"&gt;&lt;tr&gt;&lt;th class="p-2"&gt;Order&lt;/th&gt;&lt;th class="p-2"&gt;Customer&lt;/th&gt;&lt;th class="p-2"&gt;Total&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+      &lt;tbody class="divide-y-2 divide-black"&gt;
+        &lt;tr class="hover:bg-pink-100"&gt;&lt;td class="p-2"&gt;#1042&lt;/td&gt;&lt;td class="p-2"&gt;Ayesha&lt;/td&gt;&lt;td class="p-2"&gt;$48&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr class="hover:bg-pink-100"&gt;&lt;td class="p-2"&gt;#1043&lt;/td&gt;&lt;td class="p-2"&gt;Tanvir&lt;/td&gt;&lt;td class="p-2"&gt;$120&lt;/td&gt;&lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/main&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">ফলাফল</div></div>
+<h3>যা লক্ষ করবেন</h3>
+<ul><li><code>grid-cols-[10rem_1fr]</code> একটি arbitrary মান: নির্দিষ্ট প্রস্থের সাইডবার ও নমনীয় কনটেন্ট কলাম।</li><li>বার চার্টে <code>items-end</code> বারগুলোকে নিচ থেকে বাড়ায়, আর <code>h-1/3</code>, <code>h-2/3</code> উচ্চতা দেয়।</li><li><code>divide-y-2 divide-black</code> টেবিল সারির মাঝে রেখা টানে।</li></ul>
+<h3>এবার আপনার পালা</h3>
+<ul><li>ফোনে <code>hidden md:block</code> দিয়ে সাইডবার লুকিয়ে টপ বার যোগ করুন।</li><li><code>dark:</code> ভ্যারিয়েন্ট দিয়ে ডার্ক মোড যোগ করুন।</li><li><code>StatCard</code> কম্পোনেন্ট দিয়ে React-এ নতুন করে বানান।</li></ul>
+<aside class="callout take"><b>মূল কথা</b><p>আপনি এখন ল্যান্ডিং পেজ, প্রাইসিং পেজ ও ড্যাশবোর্ড বানিয়েছেন, যে তিনটি লেআউট বেশিরভাগ ওয়েবসাইটের ভিত্তি।</p></aside>
+</div></section><section class="module reveal lv-r" id="m22"><div class="mhead"><span class="num" aria-hidden="true">22</span><div><span class="badge">মডিউল 22 · রেফারেন্স</span><h2>চিট শিট, শব্দকোষ, পরের ধাপ</h2></div></div><div class="body">
+<h3>দ্রুত রেফারেন্স</h3>
+<div class="tbl"><table><thead><tr><th>কী দরকার</th><th>ক্লাস</th></tr></thead><tbody><tr><td>প্যাডিং ও মার্জিন</td><td>p-4 px-6 py-2 m-4 mx-auto mt-8</td></tr><tr><td>প্রস্থ ও উচ্চতা</td><td>w-full w-1/2 max-w-md h-screen size-10</td></tr><tr><td>লেখা</td><td>text-xl font-bold leading-tight tracking-tight text-center uppercase</td></tr><tr><td>রং</td><td>bg-pink-400 text-black border-black bg-black/50</td></tr><tr><td>বর্ডার ও আকার</td><td>border-4 rounded-xl rounded-full ring-4 shadow-md</td></tr><tr><td>ফ্লেক্সবক্স</td><td>flex flex-col items-center justify-between gap-4</td></tr><tr><td>গ্রিড</td><td>grid grid-cols-3 col-span-2 gap-4</td></tr><tr><td>রেসপন্সিভ</td><td>sm: md: lg: xl: 2xl:</td></tr><tr><td>স্টেট</td><td>hover: focus: active: disabled: group-hover: peer-checked: dark:</td></tr><tr><td>মোশন</td><td>transition duration-300 hover:scale-110 animate-spin</td></tr></tbody></table></div>
+<h3>আরও ইউটিলিটি</h3><div class="tbl"><table><thead><tr><th>কী দরকার</th><th>ক্লাস</th></tr></thead><tbody><tr><td>পজিশন</td><td>relative absolute fixed sticky inset-0 top-4 z-10</td></tr><tr><td>ডিসপ্লে</td><td>block inline-block hidden container mx-auto</td></tr><tr><td>ওভারফ্লো ও অনুপাত</td><td>overflow-hidden overflow-auto aspect-video aspect-square</td></tr><tr><td>গ্রেডিয়েন্ট</td><td>bg-linear-to-r from-pink-400 via-yellow-300 to-sky-300 bg-radial</td></tr><tr><td>ফিল্টার</td><td>blur-sm grayscale backdrop-blur-md mix-blend-multiply</td></tr><tr><td>ভ্যারিয়েন্ট</td><td>has-checked: aria-pressed: data-[state=open]: not-hover: placeholder: open: starting:</td></tr><tr><td>কন্টেইনার কুয়েরি</td><td>@container @md:grid-cols-3</td></tr><tr><td>ফর্ম ও টেবিল</td><td>accent-pink-500 invalid: divide-y-2 odd: list-disc marker:</td></tr><tr><td>টেক্সট ও মিডিয়া</td><td>truncate line-clamp-2 text-balance columns-2 object-cover snap-x</td></tr><tr><td>কনফিগ</td><td>@theme @utility @layer @source @plugin @custom-variant prefix(tw) important</td></tr></tbody></table></div><h3>v3 থেকে v4-এ যাওয়া</h3>
+<div class="tbl"><table><thead><tr><th>Tailwind v3</th><th>Tailwind v4</th></tr></thead><tbody><tr><td>@tailwind base; @tailwind components; @tailwind utilities;</td><td>@import "tailwindcss";</td></tr><tr><td>tailwind.config.js</td><td>CSS-এর ভেতরে @theme</td></tr><tr><td>shadow-sm, shadow</td><td>shadow-xs, shadow-sm</td></tr><tr><td>rounded-sm, rounded</td><td>rounded-xs, rounded-sm</td></tr><tr><td>outline-none</td><td>outline-hidden</td></tr><tr><td>bg-black bg-opacity-50</td><td>bg-black/50</td></tr><tr><td>flex-shrink-0, flex-grow</td><td>shrink-0, grow</td></tr></tbody></table></div>
+<h3>শব্দকোষ</h3>
+<div class="tbl"><table><thead><tr><th>শব্দ</th><th>অর্থ</th></tr></thead><tbody><tr><td>Utility class</td><td>একটি স্টাইলিং কাজ করা ছোট ক্লাস, যেমন p-4</td></tr><tr><td>Variant</td><td>নির্দিষ্ট অবস্থায় ক্লাস চালানো প্রিফিক্স, যেমন hover:</td></tr><tr><td>Breakpoint</td><td>যে স্ক্রিন প্রস্থে লেআউট বদলাতে পারে</td></tr><tr><td>Mobile first</td><td>প্রিফিক্সহীন ক্লাস ছোট স্ক্রিনের, প্রিফিক্স বড়গুলো যোগ করে</td></tr><tr><td>Preflight</td><td>ব্রাউজারের ডিফল্ট স্টাইল মুছে দেওয়া Tailwind-এর বেস রিসেট</td></tr><tr><td>Theme variable</td><td>@theme-এর CSS ভেরিয়েবল যা ইউটিলিটি বানায়</td></tr><tr><td>Arbitrary value</td><td>স্কয়ার ব্র্যাকেটে একবারের মান, যেমন w-[137px]</td></tr><tr><td>@apply</td><td>ইউটিলিটি আপনার নিজের CSS ক্লাসে কপি করে</td></tr></tbody></table></div>
+<h3>পরের ধাপ</h3>
+<ul><li>প্রতিটি ইউটিলিটির জন্য Tailwind CSS-এর অফিসিয়াল ডকুমেন্টেশন পড়ুন।</li><li>VS Code-এ <em>Tailwind CSS IntelliSense</em> এক্সটেনশন ও <em>prettier-plugin-tailwindcss</em> ক্লাস সর্টার ইনস্টল করুন।</li><li>React বা Vue-এর মতো একটি ফ্রেমওয়ার্ক শিখে কম্পোনেন্ট বানান।</li><li>মূল ধারণা স্বাভাবিক লাগলে Headless UI ও daisyUI-এর মতো কম্পোনেন্ট লাইব্রেরি দেখুন।</li></ul>
+<aside class="callout take"><b>মূল কথা</b><p>আপনি এখন পুরো পথটি জানেন: ধারণা, ইউটিলিটি, লেআউট, রেসপন্সিভ ডিজাইন, স্টেট, থিমিং ও একটি আসল প্রজেক্ট। বানিয়ে যান।</p></aside>
+</div></section>
+  <footer class="foot"><span>প্রতিটি উদাহরণ Tailwind Play CDN দিয়ে আপনার ব্রাউজারেই লাইভ চলে।</span><span>বাংলা সংস্করণ · <a href="#top">উপরে যান</a></span></footer>
+</main>
+</div>
+<aside class="lab" id="lab" data-t="{&quot;confirm&quot;: &quot;প্লেগ্রাউন্ড রিসেট করবেন?&quot;}" aria-label="প্লেগ্রাউন্ড"><div class="labbar"><b>প্লেগ্রাউন্ড</b><span class="spacer"></span><button class="btn sm" data-w="375px" type="button">ফোন</button><button class="btn sm" data-w="768px" type="button">ট্যাবলেট</button><button class="btn sm" data-w="100%" type="button">ডেস্কটপ</button><button class="btn sm" id="lab-reset" type="button">রিসেট</button><button class="btn sm" id="lab-close" type="button" aria-label="Close">✕</button></div><div class="labgrid"><div class="ed"><textarea id="lab-sql" spellcheck="false" placeholder="এখানে Tailwind ক্লাসসহ HTML লিখুন..."></textarea><div class="acts"><span class="hint">টাইপ করলেই প্রিভিউ বদলায়</span></div></div><div class="out pv"><div class="pvw" id="lab-wrap"><iframe id="lab-frame" sandbox="allow-scripts" title="Preview"></iframe></div></div></div></aside>
+<script src="../assets/app.js"></script>
+<script src="../assets/lab.js"></script>
+</body>
+</html>

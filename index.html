@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en" data-copied="Copied">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tailwind CSS, Zero to Advanced</title>
+<meta name="description" content="A twenty two module class for people who know only basic HTML. Learn CSS ideas and Tailwind together, see a live result under every example, build three real pages, and edit anything in the Playground.">
+<script src="assets/theme.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Hind+Siliguri:wght@500;700&family=Space+Grotesk:wght@500;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#6EC1FF">
+<link rel="stylesheet" href="assets/style.css">
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<header class="topbar">
+  <button class="btn" id="menu" type="button" aria-label="Menu">☰</button>
+  <a class="brand" href="#top"><span class="mark">Tw</span><span>Tailwind CSS</span></a>
+  <span class="spacer"></span>
+  <a class="btn" href="bn/" hreflang="bn">বাংলা</a>
+  <button class="btn" id="lab-open" type="button">▶ Playground</button>
+  <button class="btn" id="theme" type="button" aria-label="Theme">◐<span class="lbl">Theme</span></button>
+</header>
+<div class="ticker" aria-hidden="true"><div><span>FLEX</span><span>★</span><span>GRID</span><span>★</span><span>HOVER:</span><span>★</span><span>P-4</span><span>★</span><span>TEXT-XL</span><span>★</span><span>DARK:</span><span>★</span><span>SM:</span><span>★</span><span>ROUNDED</span><span>★</span><span>SHADOW</span><span>★</span><span>@THEME</span><span>★</span><span>FLEX</span><span>★</span><span>GRID</span><span>★</span><span>HOVER:</span><span>★</span><span>P-4</span><span>★</span><span>TEXT-XL</span><span>★</span><span>DARK:</span><span>★</span><span>SM:</span><span>★</span><span>ROUNDED</span><span>★</span><span>SHADOW</span><span>★</span><span>@THEME</span><span>★</span></div></div>
+<div class="scrim"></div>
+<div class="shell">
+<nav class="syllabus" aria-label="Syllabus">
+  <h2>Syllabus</h2>
+  <input class="search" id="q" type="search" placeholder="Search modules" aria-label="Search modules">
+  <div class="group lv-b">Foundations</div><ol class="lv-b"><li><a href="#m01"><b>01</b><span>Start Here: What is Tailwind CSS?</span></a></li><li><a href="#m02"><b>02</b><span>Setup: CDN, CLI and Vite</span></a></li><li><a href="#m03"><b>03</b><span>Core Utilities: Spacing, Sizing, Type, Color</span></a></li><li><a href="#m04"><b>04</b><span>Borders, Radius, Shadows, Rings</span></a></li><li><a href="#m05"><b>05</b><span>Layout Basics: Display, Position, Overflow, Z-index</span></a></li><li><a href="#m06"><b>06</b><span>Backgrounds, Gradients, Filters</span></a></li></ol><div class="group lv-i">Intermediate</div><ol class="lv-i"><li><a href="#m07"><b>07</b><span>Flexbox</span></a></li><li><a href="#m08"><b>08</b><span>Grid</span></a></li><li><a href="#m09"><b>09</b><span>Responsive Design</span></a></li><li><a href="#m10"><b>10</b><span>States and Variants</span></a></li><li><a href="#m11"><b>11</b><span>Advanced Variants and Container Queries</span></a></li><li><a href="#m12"><b>12</b><span>Transitions, Transforms, Animation</span></a></li><li><a href="#m13"><b>13</b><span>Forms, Tables and Lists</span></a></li><li><a href="#m14"><b>14</b><span>Text, Media and Content Utilities</span></a></li></ol><div class="group lv-a">Advanced</div><ol class="lv-a"><li><a href="#m15"><b>15</b><span>Customization: Theme, Arbitrary Values, @apply</span></a></li><li><a href="#m16"><b>16</b><span>Configuration in Depth</span></a></li><li><a href="#m17"><b>17</b><span>Reuse and Accessibility</span></a></li><li><a href="#m18"><b>18</b><span>Frameworks, Tooling and Production</span></a></li><li><a href="#m19"><b>19</b><span>Project: Build a Landing Page</span></a></li><li><a href="#m20"><b>20</b><span>Project: Build a Pricing Page</span></a></li><li><a href="#m21"><b>21</b><span>Project: Build a Dashboard</span></a></li></ol><div class="group lv-r">Reference</div><ol class="lv-r"><li><a href="#m22"><b>22</b><span>Cheat Sheet, Glossary, Next Steps</span></a></li></ol>
+</nav>
+<main id="top">
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Open Courseware · Web Design</div>
+      <h1>Tailwind CSS,<br><em>zero</em> to advanced</h1>
+      <p class="lead">A twenty two module class for people who know only basic HTML. Learn CSS ideas and Tailwind together, see a live result under every example, build three real pages, and edit anything in the Playground.</p>
+      <div class="cta"><a class="btn primary" href="#m01">Start Module 01 →</a><button class="btn" id="lab-open2" type="button">▶ Playground</button></div>
+    </div>
+    <svg class="schema" viewBox="0 0 430 290" role="img" aria-label="Utility classes styling a button">
+<path class="ln" d="M292 55 L214 135"/><path class="ln" d="M292 115 L214 148"/><path class="ln" d="M292 175 L214 165"/><path class="ln" d="M292 235 L214 178"/>
+<g class="t"><rect class="tb" x="16" y="20" width="250" height="230"/><rect class="th" x="16" y="20" width="250" height="26"/><text class="hd" x="28" y="38">index.html</text>
+<rect x="68" y="132" width="150" height="52" fill="#111"/><rect class="bt" x="62" y="126" width="150" height="52"/><text class="hd" x="137" y="157" text-anchor="middle" style="font-size:14px">Click me</text></g>
+<g class="t"><rect class="ch" x="292" y="40" width="124" height="30"/><text x="302" y="60">bg-pink-400</text><rect class="ch" x="292" y="100" width="124" height="30"/><text x="302" y="120">border-4</text></g>
+<g class="t"><rect class="ch" x="292" y="160" width="124" height="30"/><text x="302" y="180">px-6 py-3</text><rect class="ch" x="292" y="220" width="124" height="30"/><text x="302" y="240">shadow-brutal</text></g>
+</svg>
+  </section>
+  <dl class="meta"><div><dt>Duration</dt><dd>≈ 35 hours</dd></div><div><dt>Modules</dt><dd>22</dd></div><div><dt>Prerequisite</dt><dd>Basic HTML</dd></div><div><dt>Version</dt><dd>Tailwind CSS v4</dd></div></dl>
+  <ol class="track"><li class="lv-b"><b>Foundations</b><span>Modules 01 to 06</span><p>CSS and Tailwind basics, setup, spacing, type, color, borders, layout, backgrounds and filters.</p></li><li class="lv-i"><b>Intermediate</b><span>Modules 07 to 14</span><p>Flexbox, grid, responsive design, variants, container queries, motion, forms, tables and content utilities.</p></li><li class="lv-a"><b>Advanced</b><span>Modules 15 to 21</span><p>Themes, configuration, reuse, accessibility, frameworks, tooling and three full projects.</p></li></ol>
+  <section class="module reveal lv-b" id="m01"><div class="mhead"><span class="num" aria-hidden="true">01</span><div><span class="badge">Module 01 · Beginner</span><h2>Start Here: What is Tailwind CSS?</h2></div></div><div class="body">
+<p>This course assumes you know only <strong>basic HTML</strong> (tags like <code>&lt;div&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;a&gt;</code>). No CSS knowledge needed. Every example has a live <strong>Result</strong> under it, and you can edit anything in the <strong>Playground</strong> (top bar).</p>
+<h3>What is CSS?</h3>
+<p>HTML says <em>what</em> is on the page, such as a heading or a button. <strong>CSS</strong> says <em>how it looks</em>: color, size, spacing and layout. Plain CSS lives in a separate file and picks elements with selectors:</p>
+<figure class="code"><figcaption><span>CSS</span><span class="fa"><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="css">.btn {
+  background: #f472b6;
+  padding: 12px 24px;
+  border: 4px solid #000;
+}
+.btn:hover {
+  background: #ec4899;
+}</code></pre></figure>
+<h3>What is Tailwind CSS?</h3>
+<p>Tailwind is a <strong>utility first</strong> framework. Instead of writing CSS rules, you put many tiny ready made classes, each doing one job, straight on the HTML element. <code>bg-pink-400</code> sets a background, <code>px-6</code> adds horizontal padding, <code>font-bold</code> makes text bold.</p>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">Try ▶</button><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;button class="border-4 border-black bg-pink-400 px-6 py-3 font-bold text-black shadow-[6px_6px_0_#111] transition hover:translate-x-1 hover:translate-y-1 hover:shadow-none"&gt;
+  Click me
+&lt;/button&gt;</code></pre></figure><div class="demo"><div class="demo-bar">Result</div></div>
+<h3>Why people like it</h3>
+<ul><li>No inventing class names and no jumping between files.</li><li>A fixed design scale for spacing, colors and sizes keeps designs consistent.</li><li>Only the classes you use end up in the final CSS file, so it stays small.</li><li>Responsive design and states are just prefixes: <code>md:</code>, <code>hover:</code>.</li></ul>
+<aside class="callout take"><b>Key takeaway</b><p>HTML = structure. CSS = looks. Tailwind = a huge set of small classes so you can style directly in your HTML.</p></aside>
+</div></section><section class="module reveal lv-b" id="m02"><div class="mhead"><span class="num" aria-hidden="true">02</span><div><span class="badge">Module 02 · Beginner</span><h2>Setup: CDN, CLI and Vite</h2></div></div><div class="body">
+<p>There are three ways to use Tailwind, from easiest to professional.</p>
+<h3>1. Play CDN (for learning)</h3>
+<p>One script tag, nothing to install. Perfect for this course, not meant for real websites.</p>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class="p-8"&gt;
+  &lt;h1 class="text-3xl font-bold text-pink-600"&gt;Hello Tailwind&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></figure>
+<h3>2. Tailwind CLI (small sites)</h3>
+<p>Install <strong>Node.js</strong> (the LTS version from nodejs.org). On Windows, run the installer, then open PowerShell and check it worked:</p>
+<figure class="code"><figcaption><span>Shell</span><span class="fa"><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="sh">node -v
+npm -v</code></pre></figure>
+<figure class="code"><figcaption><span>Shell</span><span class="fa"><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="sh">mkdir my-site
+cd my-site
+npm init -y
+npm install tailwindcss @tailwindcss/cli
+mkdir src</code></pre></figure>
+<p>Create the input file, start the build in watch mode, then link the generated file in your HTML.</p>
+<figure class="code"><figcaption><span>CSS</span><span class="fa"><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="css">/* src/input.css */
+@import "tailwindcss";</code></pre></figure>
+<figure class="code"><figcaption><span>Shell</span><span class="fa"><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="sh">npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css --watch</code></pre></figure>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;link href="./dist/output.css" rel="stylesheet"&gt;</code></pre></figure>
+<h3>3. Vite (real projects)</h3>
+<p>Vite is a fast dev server used with React, Vue, Svelte and plain JavaScript. Add Tailwind as a plugin, then put <code>@import "tailwindcss";</code> in your main CSS file.</p>
+<figure class="code"><figcaption><span>Shell</span><span class="fa"><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="sh">npm create vite@latest my-app
+cd my-app
+npm install tailwindcss @tailwindcss/vite</code></pre></figure>
+<figure class="code"><figcaption><span>JavaScript</span><span class="fa"><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="js">// vite.config.js
+import { defineConfig } from "vite";
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+  plugins: [tailwindcss()],
+});</code></pre></figure>
+<aside class="callout tip"><b>Tip</b><p>Tailwind v4 finds your template files automatically, so there is no <code>tailwind.config.js</code> to write. It targets modern browsers (Chrome 111+, Safari 16.4+, Firefox 128+).</p></aside>
+</div></section><section class="module reveal lv-b" id="m03"><div class="mhead"><span class="num" aria-hidden="true">03</span><div><span class="badge">Module 03 · Beginner</span><h2>Core Utilities: Spacing, Sizing, Type, Color</h2></div></div><div class="body">
+<p>Utility names follow a pattern: <code>property-value</code>, such as <code>p-4</code> or <code>text-xl</code>. Learn the families once and you can guess most names.</p>
+<h3>Spacing</h3>
+<p>The scale is based on <strong>0.25rem (4px)</strong>. So <code>p-4</code> is 16px.</p>
+<div class="tbl"><table><thead><tr><th>Class</th><th>Meaning</th></tr></thead><tbody><tr><td>p-1, p-2, p-4, p-8, p-16</td><td>Padding 4px, 8px, 16px, 32px, 64px</td></tr><tr><td>px-4, py-2, pt-2, pr-2, pb-2, pl-2</td><td>Padding on x axis, y axis or one side</td></tr><tr><td>m-4, mx-auto, -mt-2</td><td>Margin; <code>mx-auto</code> centers a block; minus signs are allowed</td></tr><tr><td>gap-4, space-y-4</td><td>Space between children</td></tr></tbody></table></div>
+<h3>Sizing</h3>
+<div class="tbl"><table><thead><tr><th>Class</th><th>Meaning</th></tr></thead><tbody><tr><td>w-full, w-1/2, w-64</td><td>Width 100%, 50%, 16rem</td></tr><tr><td>max-w-md, max-w-2xl</td><td>Maximum width</td></tr><tr><td>h-screen, min-h-screen</td><td>Full viewport height</td></tr><tr><td>size-10</td><td>Width and height together</td></tr></tbody></table></div>
+<h3>Typography</h3>
+<div class="tbl"><table><thead><tr><th>Class</th><th>Meaning</th></tr></thead><tbody><tr><td>text-sm, text-xl, text-4xl</td><td>Font size</td></tr><tr><td>font-light, font-bold, font-black</td><td>Font weight</td></tr><tr><td>leading-tight, leading-relaxed</td><td>Line height</td></tr><tr><td>tracking-tight, text-center, uppercase, truncate</td><td>Letter spacing, alignment, case, cut long text</td></tr></tbody></table></div>
+<h3>Color</h3>
+<p>Colors are <code>color-shade</code>: <code>bg-sky-500</code>, <code>text-rose-600</code>, <code>border-lime-300</code>. Shades run from 50 (lightest) to 950 (darkest). Add opacity with a slash: <code>bg-black/50</code>.</p>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">Try ▶</button><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;div class="max-w-sm border-4 border-black bg-yellow-300 p-6"&gt;
+  &lt;h2 class="text-2xl font-extrabold tracking-tight"&gt;Tailwind Card&lt;/h2&gt;
+  &lt;p class="mt-2 text-base leading-relaxed text-gray-800"&gt;Small classes, big results.&lt;/p&gt;
+  &lt;a href="#" class="mt-4 inline-block bg-black px-4 py-2 font-semibold text-white"&gt;Read more&lt;/a&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">Result</div></div>
+<details class="ex"><summary data-show="Show solution" data-hide="Hide solution"><small>Practice</small><span>Change the card background to pink and make the link text yellow.</span></summary><figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">Try ▶</button><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;div class="max-w-sm border-4 border-black bg-pink-300 p-6"&gt;
+  &lt;h2 class="text-2xl font-extrabold tracking-tight"&gt;Tailwind Card&lt;/h2&gt;
+  &lt;p class="mt-2 text-base leading-relaxed text-gray-800"&gt;Small classes, big results.&lt;/p&gt;
+  &lt;a href="#" class="mt-4 inline-block bg-black px-4 py-2 font-semibold text-yellow-300"&gt;Read more&lt;/a&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">Result</div></div></details>
+<aside class="callout warn"><b>Caution</b><p>Tailwind resets browser defaults (the base layer is called <em>Preflight</em>). A bare <code>&lt;h1&gt;</code> is not big and bold, and <code>&lt;ul&gt;</code> has no bullets. Add classes yourself.</p></aside>
+</div></section><section class="module reveal lv-b" id="m04"><div class="mhead"><span class="num" aria-hidden="true">04</span><div><span class="badge">Module 04 · Beginner</span><h2>Borders, Radius, Shadows, Rings</h2></div></div><div class="body">
+<p>These utilities give elements their shape. The hard offset shadow you see on this website is a single arbitrary value: <code>shadow-[6px_6px_0_#111]</code>.</p>
+<div class="tbl"><table><thead><tr><th>Class</th><th>Effect</th></tr></thead><tbody><tr><td>border-2, border-4, border-t-4</td><td>Border width, all sides or one side</td></tr><tr><td>border-black, border-pink-400</td><td>Border color</td></tr><tr><td>rounded-lg, rounded-xl, rounded-full</td><td>Corner radius</td></tr><tr><td>shadow-md, shadow-xl</td><td>Soft shadows</td></tr><tr><td>ring-4 ring-sky-400</td><td>A ring outline that does not change layout</td></tr></tbody></table></div>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">Try ▶</button><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;div class="flex flex-wrap gap-6 p-4"&gt;
+  &lt;div class="size-24 border-4 border-black bg-pink-300"&gt;&lt;/div&gt;
+  &lt;div class="size-24 rounded-xl border-4 border-black bg-sky-300"&gt;&lt;/div&gt;
+  &lt;div class="size-24 rounded-full border-4 border-black bg-lime-300"&gt;&lt;/div&gt;
+  &lt;div class="size-24 border-4 border-black bg-yellow-300 shadow-[6px_6px_0_#111]"&gt;&lt;/div&gt;
+  &lt;div class="size-24 bg-white ring-4 ring-sky-400"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">Result</div></div>
+<aside class="callout tip"><b>Tip</b><p>Square brackets let you type any value: <code>w-[137px]</code>, <code>bg-[#ff7ab6]</code>, <code>top-[117px]</code>. Use them for one off values.</p></aside>
+</div></section><section class="module reveal lv-b" id="m05"><div class="mhead"><span class="num" aria-hidden="true">05</span><div><span class="badge">Module 05 · Beginner</span><h2>Layout Basics: Display, Position, Overflow, Z-index</h2></div></div><div class="body">
+<p>Before flexbox and grid, learn how an element sits on the page. <code>hidden</code> removes it (<code>display: none</code>), <code>block</code> and <code>inline-block</code> set how it flows, and <code>container</code> sets a max width that grows at each breakpoint.</p>
+<div class="tbl"><table><thead><tr><th>Class</th><th>Effect</th></tr></thead><tbody><tr><td>block, inline, inline-block, hidden</td><td>Display type; hidden removes the element</td></tr><tr><td>container mx-auto px-4</td><td>Centered page width. In v4 add centering and padding yourself</td></tr><tr><td>relative, absolute, fixed, sticky</td><td>Positioning; absolute is placed against the nearest relative parent</td></tr><tr><td>inset-0, top-4, -right-3, inset-x-4</td><td>Offsets for positioned elements</td></tr><tr><td>z-10, z-50</td><td>Stacking order</td></tr><tr><td>overflow-hidden, overflow-auto, overflow-x-auto</td><td>Clip or scroll content that does not fit</td></tr><tr><td>aspect-video, aspect-square</td><td>Keep a width to height ratio</td></tr></tbody></table></div>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">Try ▶</button><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;div class="p-6"&gt;
+  &lt;div class="relative h-40 w-64 border-4 border-black bg-sky-300"&gt;
+    &lt;span class="absolute -top-3 -right-3 border-4 border-black bg-pink-400 px-2 font-black"&gt;NEW&lt;/span&gt;
+    &lt;span class="absolute bottom-2 left-2 font-bold"&gt;bottom-2 left-2&lt;/span&gt;
+    &lt;div class="absolute inset-x-4 top-1/2 h-1 bg-black"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">Result</div></div>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">Try ▶</button><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;div class="flex flex-wrap gap-4 p-4"&gt;
+  &lt;div class="aspect-video w-48 border-4 border-black bg-lime-300"&gt;&lt;/div&gt;
+  &lt;div class="h-24 w-48 overflow-hidden border-4 border-black bg-yellow-200"&gt;
+    &lt;div class="h-48 bg-orange-300 p-2"&gt;Content taller than the box is clipped&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">Result</div></div>
+<p><code>sticky</code> keeps an element in view after you scroll past it. A sticky header needs a <code>top-0</code> offset and usually a <code>z-</code> value so it stays above the content.</p>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;header class="sticky top-0 z-50 border-b-4 border-black bg-yellow-300 p-4"&gt;
+  I stay at the top while the page scrolls
+&lt;/header&gt;</code></pre></figure>
+<aside class="callout tip"><b>Tip</b><p>Put <code>relative</code> on the parent whenever a child uses <code>absolute</code>. Without it the child is placed against the whole page.</p></aside>
+</div></section><section class="module reveal lv-b" id="m06"><div class="mhead"><span class="num" aria-hidden="true">06</span><div><span class="badge">Module 06 · Beginner</span><h2>Backgrounds, Gradients, Filters</h2></div></div><div class="body">
+<p>Backgrounds go beyond a flat color. v4 names gradients by direction type: <code>bg-linear-to-r</code> with <code>from-</code>, <code>via-</code> and <code>to-</code> colors, plus <code>bg-radial</code> and <code>bg-conic</code>. Photos use an arbitrary value like <code>bg-[url(/img/hero.jpg)]</code> with <code>bg-cover bg-center</code>.</p>
+<div class="tbl"><table><thead><tr><th>Class</th><th>Effect</th></tr></thead><tbody><tr><td>bg-linear-to-br from-pink-400 to-sky-300</td><td>Linear gradient toward the bottom right</td></tr><tr><td>bg-radial, bg-conic</td><td>Radial and conic gradients</td></tr><tr><td>bg-cover, bg-center, bg-no-repeat</td><td>Size, position and repeat of a background image</td></tr><tr><td>bg-white/30, opacity-50</td><td>Transparent background, or a transparent element</td></tr><tr><td>backdrop-blur-md</td><td>Blur what is behind the element (frosted glass)</td></tr><tr><td>blur-sm, grayscale, brightness-125, drop-shadow-lg</td><td>Filters on the element itself</td></tr><tr><td>mix-blend-multiply</td><td>Blend with what is underneath</td></tr></tbody></table></div>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">Try ▶</button><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;div class="flex flex-wrap gap-4 p-4"&gt;
+  &lt;div class="h-28 w-40 border-4 border-black bg-linear-to-br from-pink-400 via-yellow-300 to-sky-300"&gt;&lt;/div&gt;
+  &lt;div class="h-28 w-40 border-4 border-black bg-radial from-yellow-200 to-pink-500"&gt;&lt;/div&gt;
+  &lt;div class="relative h-28 w-40 overflow-hidden border-4 border-black bg-linear-to-r from-sky-400 to-lime-300"&gt;
+    &lt;div class="absolute inset-4 border-2 border-white bg-white/30 p-2 font-bold backdrop-blur-md"&gt;Glass&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="h-28 w-40 border-4 border-black bg-pink-400 grayscale"&gt;&lt;/div&gt;
+  &lt;div class="h-28 w-40 border-4 border-black bg-pink-400 blur-sm"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">Result</div></div>
+<aside class="callout warn"><b>Caution</b><p><code>backdrop-blur</code> needs something visible behind the element, and a semi transparent background such as <code>bg-white/30</code>, or you will see no effect.</p></aside>
+</div></section><section class="module reveal lv-i" id="m07"><div class="mhead"><span class="num" aria-hidden="true">07</span><div><span class="badge">Module 07 · Intermediate</span><h2>Flexbox</h2></div></div><div class="body">
+<p><strong>Flexbox</strong> lays items out in a row or a column. Add <code>flex</code> to the parent and its children line up. It is the tool for navbars, button groups and centering.</p>
+<div class="tbl"><table><thead><tr><th>Class</th><th>Effect</th></tr></thead><tbody><tr><td>flex, flex-col, flex-wrap</td><td>Row, column, allow wrapping</td></tr><tr><td>items-start, items-center, items-end</td><td>Align on the cross axis (up and down in a row)</td></tr><tr><td>justify-start, justify-center, justify-between, justify-around</td><td>Spread items on the main axis</td></tr><tr><td>gap-4, grow, shrink-0</td><td>Spacing, let an item grow, stop it shrinking</td></tr></tbody></table></div>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">Try ▶</button><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;nav class="flex items-center justify-between border-4 border-black bg-yellow-300 px-4 py-3"&gt;
+  &lt;span class="font-black"&gt;LOGO&lt;/span&gt;
+  &lt;ul class="flex gap-4 font-semibold"&gt;
+    &lt;li&gt;Home&lt;/li&gt;
+    &lt;li&gt;Courses&lt;/li&gt;
+    &lt;li&gt;Contact&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;button class="bg-black px-3 py-1 text-white"&gt;Login&lt;/button&gt;
+&lt;/nav&gt;</code></pre></figure><div class="demo"><div class="demo-bar">Result</div></div>
+<details class="ex"><summary data-show="Show solution" data-hide="Hide solution"><small>Practice</small><span>Center a box both horizontally and vertically inside a 12rem tall yellow area.</span></summary><figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">Try ▶</button><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;div class="flex h-48 items-center justify-center border-4 border-black bg-yellow-300"&gt;
+  &lt;div class="border-4 border-black bg-pink-300 p-6 font-bold"&gt;Centered&lt;/div&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">Result</div></div></details>
+</div></section><section class="module reveal lv-i" id="m08"><div class="mhead"><span class="num" aria-hidden="true">08</span><div><span class="badge">Module 08 · Intermediate</span><h2>Grid</h2></div></div><div class="body">
+<p><strong>Grid</strong> arranges items in rows and columns at once, ideal for card layouts and page sections. <code>grid-cols-3</code> makes three equal columns, and <code>col-span-2</code> lets an item cover two of them.</p>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">Try ▶</button><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;div class="grid grid-cols-3 gap-4 p-4"&gt;
+  &lt;div class="border-4 border-black bg-pink-300 p-6"&gt;One&lt;/div&gt;
+  &lt;div class="border-4 border-black bg-sky-300 p-6"&gt;Two&lt;/div&gt;
+  &lt;div class="border-4 border-black bg-lime-300 p-6"&gt;Three&lt;/div&gt;
+  &lt;div class="col-span-2 border-4 border-black bg-yellow-300 p-6"&gt;Wide (col-span-2)&lt;/div&gt;
+  &lt;div class="border-4 border-black bg-orange-300 p-6"&gt;Six&lt;/div&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">Result</div></div>
+<div class="tbl"><table><thead><tr><th>Class</th><th>Effect</th></tr></thead><tbody><tr><td>grid, grid-cols-2, grid-cols-12</td><td>Number of columns</td></tr><tr><td>col-span-2, row-span-2</td><td>Cover several columns or rows</td></tr><tr><td>gap-4, gap-x-6, gap-y-2</td><td>Spacing between cells</td></tr><tr><td>place-items-center</td><td>Center items inside their cells</td></tr></tbody></table></div>
+<aside class="callout take"><b>Key takeaway</b><p>Rule of thumb: one dimension (a row of things) uses flex, two dimensions (rows and columns) use grid.</p></aside>
+</div></section><section class="module reveal lv-i" id="m09"><div class="mhead"><span class="num" aria-hidden="true">09</span><div><span class="badge">Module 09 · Intermediate</span><h2>Responsive Design</h2></div></div><div class="body">
+<p>Tailwind is <strong>mobile first</strong>. A class with no prefix applies to all screens. A prefix such as <code>md:</code> means <em>this width and wider</em>. So <code>grid-cols-1 md:grid-cols-3</code> is one column on phones and three from medium screens up.</p>
+<div class="tbl"><table><thead><tr><th>Prefix</th><th>Starts at</th></tr></thead><tbody><tr><td>sm:</td><td>640px</td></tr><tr><td>md:</td><td>768px</td></tr><tr><td>lg:</td><td>1024px</td></tr><tr><td>xl:</td><td>1280px</td></tr><tr><td>2xl:</td><td>1536px</td></tr></tbody></table></div>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">Try ▶</button><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;div class="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 lg:grid-cols-4"&gt;
+  &lt;div class="border-4 border-black bg-pink-300 p-6 text-center font-bold"&gt;1&lt;/div&gt;
+  &lt;div class="border-4 border-black bg-sky-300 p-6 text-center font-bold"&gt;2&lt;/div&gt;
+  &lt;div class="border-4 border-black bg-lime-300 p-6 text-center font-bold"&gt;3&lt;/div&gt;
+  &lt;div class="border-4 border-black bg-yellow-300 p-6 text-center font-bold"&gt;4&lt;/div&gt;
+&lt;/div&gt;
+&lt;p class="p-4 text-lg font-black sm:text-2xl lg:text-4xl"&gt;This text grows with the screen&lt;/p&gt;</code></pre></figure><div class="demo"><div class="demo-bar">Result</div></div>
+<p>Drag the Playground's <strong>Phone, Tablet, Desktop</strong> buttons to test layouts at different widths.</p>
+<details class="ex"><summary data-show="Show solution" data-hide="Hide solution"><small>Practice</small><span>Make three boxes stack on phones and sit side by side on large screens.</span></summary><figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">Try ▶</button><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;div class="grid grid-cols-1 gap-4 p-4 lg:grid-cols-3"&gt;
+  &lt;div class="border-4 border-black bg-pink-300 p-6"&gt;A&lt;/div&gt;
+  &lt;div class="border-4 border-black bg-sky-300 p-6"&gt;B&lt;/div&gt;
+  &lt;div class="border-4 border-black bg-lime-300 p-6"&gt;C&lt;/div&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">Result</div></div></details>
+<aside class="callout tip"><b>Tip</b><p>Design for the phone first, then add <code>md:</code> and <code>lg:</code> classes to enhance larger screens. Avoid thinking in terms of <em>mobile only</em> prefixes.</p></aside>
+</div></section><section class="module reveal lv-i" id="m10"><div class="mhead"><span class="num" aria-hidden="true">10</span><div><span class="badge">Module 10 · Intermediate</span><h2>States and Variants</h2></div></div><div class="body">
+<p>A <strong>variant</strong> is a prefix that applies a class only in some situation. <code>hover:bg-pink-300</code> works on mouse over, <code>focus:</code> when focused, <code>active:</code> while pressed, <code>disabled:</code> on disabled controls.</p>
+<ul><li><strong>group</strong>: mark a parent with <code>group</code>, then style children with <code>group-hover:</code>.</li><li><strong>peer</strong>: mark an earlier sibling with <code>peer</code>, then style the next one with <code>peer-checked:</code>.</li><li><strong>Position</strong> variants: <code>first:</code>, <code>last:</code>, <code>odd:</code>, <code>even:</code>.</li><li><strong>Dark mode</strong>: <code>dark:bg-black</code> follows the system setting by default.</li></ul>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">Try ▶</button><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;div class="flex flex-col gap-4 p-4"&gt;
+  &lt;button class="border-4 border-black bg-yellow-300 px-6 py-3 font-bold transition hover:bg-pink-300 focus:ring-4 focus:ring-sky-400 active:translate-y-1 disabled:opacity-50"&gt;
+    Hover, focus, press me
+  &lt;/button&gt;
+  &lt;div class="group border-4 border-black bg-white p-4"&gt;
+    &lt;p class="font-bold"&gt;Hover this card&lt;/p&gt;
+    &lt;p class="text-gray-500 group-hover:text-pink-600"&gt;I change when my parent is hovered&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;label class="flex items-center gap-2"&gt;
+    &lt;input type="checkbox" class="peer size-5"&gt;
+    &lt;span class="peer-checked:font-black peer-checked:text-green-600"&gt;Tick the box&lt;/span&gt;
+  &lt;/label&gt;
+  &lt;p class="bg-white p-3 text-black dark:bg-black dark:text-white"&gt;Light or dark, following your system&lt;/p&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">Result</div></div>
+<h3>Switch dark mode yourself</h3>
+<p>To control dark mode with a button, add one line that ties <code>dark:</code> to a <code>dark</code> class on the page.</p>
+<figure class="code"><figcaption><span>CSS</span><span class="fa"><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="css">@import "tailwindcss";
+
+/* Switch dark mode with a "dark" class on &lt;html&gt; instead of the system setting */
+@custom-variant dark (&amp;:where(.dark, .dark *));</code></pre></figure>
+</div></section><section class="module reveal lv-i" id="m11"><div class="mhead"><span class="num" aria-hidden="true">11</span><div><span class="badge">Module 11 · Intermediate</span><h2>Advanced Variants and Container Queries</h2></div></div><div class="body">
+<p>Tailwind v4 has variants for almost every state. A few of the most useful:</p>
+<ul><li><code>has-checked:</code> styles a <em>parent</em> based on its child, for example a card that highlights when its radio is selected.</li><li><code>aria-pressed:</code>, <code>aria-expanded:</code>, <code>data-[state=open]:</code> style from attributes, which fits UI libraries.</li><li><code>not-hover:</code> applies when a state is <em>not</em> active.</li><li><code>placeholder:</code>, <code>selection:</code>, <code>file:</code>, <code>marker:</code>, <code>first-letter:</code>, <code>open:</code> target special parts of elements.</li><li><code>starting:</code> sets the style an element has when it first appears, to animate entry.</li></ul>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">Try ▶</button><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;div class="flex flex-col gap-4 p-4"&gt;
+  &lt;label class="flex items-center gap-3 border-4 border-black bg-white p-3 has-checked:bg-lime-300"&gt;
+    &lt;input type="checkbox" class="size-5"&gt; The parent turns green when the box is ticked
+  &lt;/label&gt;
+  &lt;button aria-pressed="true" class="border-4 border-black bg-white px-4 py-2 font-bold aria-pressed:bg-pink-400"&gt;aria-pressed&lt;/button&gt;
+  &lt;div data-state="open" class="border-4 border-black bg-white p-3 data-[state=open]:bg-yellow-300"&gt;data-[state=open]&lt;/div&gt;
+  &lt;input placeholder="placeholder:italic" class="border-4 border-black p-2 placeholder:italic placeholder:text-gray-500 selection:bg-pink-300"&gt;
+  &lt;details class="border-4 border-black bg-white p-3 open:bg-sky-200"&gt;
+    &lt;summary class="cursor-pointer font-bold"&gt;open: variant (click me)&lt;/summary&gt;
+    Details content
+  &lt;/details&gt;
+  &lt;div class="@container"&gt;
+    &lt;div class="grid gap-2 @md:grid-cols-3"&gt;
+      &lt;div class="bg-pink-300 p-3"&gt;Container A&lt;/div&gt;
+      &lt;div class="bg-sky-300 p-3"&gt;Container B&lt;/div&gt;
+      &lt;div class="bg-lime-300 p-3"&gt;Container C&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">Result</div></div>
+<h3>Container queries</h3>
+<p>Media queries look at the <em>screen</em>. <strong>Container queries</strong> look at the <em>parent</em>, so a component adapts to the space it is given. Mark the parent with <code>@container</code> and use <code>@sm:</code>, <code>@md:</code>, <code>@lg:</code> on children.</p>
+<aside class="callout take"><b>Key takeaway</b><p>Use responsive prefixes for page layout and container queries for reusable components, like a card that may sit in a sidebar or a wide column.</p></aside>
+</div></section><section class="module reveal lv-i" id="m12"><div class="mhead"><span class="num" aria-hidden="true">12</span><div><span class="badge">Module 12 · Intermediate</span><h2>Transitions, Transforms, Animation</h2></div></div><div class="body">
+<p>Add <code>transition</code> so changes animate smoothly, set the speed with <code>duration-300</code>, and describe the change with a variant such as <code>hover:scale-110</code>.</p>
+<div class="tbl"><table><thead><tr><th>Class</th><th>Effect</th></tr></thead><tbody><tr><td>transition, duration-300, ease-out</td><td>Animate changes, set time and curve</td></tr><tr><td>scale-110, rotate-6, -translate-y-1</td><td>Resize, rotate, move</td></tr><tr><td>animate-spin, animate-bounce, animate-pulse</td><td>Built in looping animations</td></tr></tbody></table></div>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">Try ▶</button><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;div class="flex items-center gap-6 p-6"&gt;
+  &lt;div class="size-24 border-4 border-black bg-pink-300 transition duration-300 hover:-rotate-6 hover:scale-110 hover:bg-yellow-300"&gt;&lt;/div&gt;
+  &lt;div class="size-24 animate-bounce border-4 border-black bg-sky-300"&gt;&lt;/div&gt;
+  &lt;div class="size-10 animate-spin rounded-full border-4 border-black border-t-transparent"&gt;&lt;/div&gt;
+  &lt;div class="size-10 animate-pulse bg-lime-300"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">Result</div></div>
+<aside class="callout warn"><b>Caution</b><p>Some people feel sick from heavy motion. Add <code>motion-reduce:animate-none</code> or <code>motion-reduce:transition-none</code> to respect their system setting.</p></aside>
+</div></section><section class="module reveal lv-i" id="m13"><div class="mhead"><span class="num" aria-hidden="true">13</span><div><span class="badge">Module 13 · Intermediate</span><h2>Forms, Tables and Lists</h2></div></div><div class="body">
+<p>Preflight strips default look from form controls, tables and lists, so you style them yourself. Inputs need a border, padding and a focus style. Lists need <code>list-disc</code> or <code>list-decimal</code> to show markers again.</p>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">Try ▶</button><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;form class="max-w-sm space-y-4 border-4 border-black bg-white p-6"&gt;
+  &lt;label class="block"&gt;
+    &lt;span class="font-bold"&gt;Email&lt;/span&gt;
+    &lt;input type="email" placeholder="you@example.com" class="mt-1 block w-full border-4 border-black p-2 focus:bg-yellow-100 focus:ring-4 focus:ring-sky-400 focus:outline-none invalid:border-red-500"&gt;
+  &lt;/label&gt;
+  &lt;label class="block"&gt;
+    &lt;span class="font-bold"&gt;Role&lt;/span&gt;
+    &lt;select class="mt-1 block w-full border-4 border-black bg-white p-2"&gt;
+      &lt;option&gt;Student&lt;/option&gt;
+      &lt;option&gt;Teacher&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/label&gt;
+  &lt;label class="flex items-center gap-2"&gt;
+    &lt;input type="checkbox" class="size-5 accent-pink-500"&gt; Remember me
+  &lt;/label&gt;
+  &lt;button type="button" class="w-full border-4 border-black bg-pink-400 py-2 font-bold shadow-[4px_4px_0_#111] disabled:opacity-50"&gt;Sign in&lt;/button&gt;
+&lt;/form&gt;</code></pre></figure><div class="demo"><div class="demo-bar">Result</div></div>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">Try ▶</button><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;div class="space-y-6 p-4"&gt;
+  &lt;table class="w-full border-4 border-black text-left"&gt;
+    &lt;thead class="bg-yellow-300"&gt;
+      &lt;tr&gt;&lt;th class="p-3"&gt;Name&lt;/th&gt;&lt;th class="p-3"&gt;GPA&lt;/th&gt;&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody class="divide-y-2 divide-black bg-white"&gt;
+      &lt;tr class="odd:bg-sky-100 hover:bg-pink-100"&gt;&lt;td class="p-3"&gt;Ayesha&lt;/td&gt;&lt;td class="p-3"&gt;3.80&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr class="odd:bg-sky-100 hover:bg-pink-100"&gt;&lt;td class="p-3"&gt;Tanvir&lt;/td&gt;&lt;td class="p-3"&gt;3.40&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr class="odd:bg-sky-100 hover:bg-pink-100"&gt;&lt;td class="p-3"&gt;Nusrat&lt;/td&gt;&lt;td class="p-3"&gt;3.95&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+  &lt;ul class="list-disc pl-6 marker:text-pink-500"&gt;
+    &lt;li&gt;Bullets come back with list-disc&lt;/li&gt;
+    &lt;li&gt;marker: colors the bullet&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">Result</div></div>
+<p>Prefer a ready made base? The official <strong>forms plugin</strong> gives sensible default styles to inputs and selects that you then adjust with utilities.</p>
+<figure class="code"><figcaption><span>CSS</span><span class="fa"><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="css">/* npm install -D @tailwindcss/forms */
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";</code></pre></figure>
+<div class="tbl"><table><thead><tr><th>Class</th><th>Effect</th></tr></thead><tbody><tr><td>accent-pink-500</td><td>Colors checkboxes, radios and range inputs</td></tr><tr><td>invalid:, required:, disabled:, read-only:</td><td>Style by validation or state</td></tr><tr><td>divide-y-2 divide-black</td><td>Lines between children or table rows</td></tr><tr><td>odd:, even:</td><td>Zebra striping</td></tr><tr><td>list-disc, list-decimal, list-inside, marker:</td><td>List markers and their color</td></tr></tbody></table></div>
+<aside class="callout tip"><b>Tip</b><p>Always connect a <code>&lt;label&gt;</code> to its input, by wrapping the input or using <code>for</code> and <code>id</code>. Placeholders are not a replacement for labels.</p></aside>
+</div></section><section class="module reveal lv-i" id="m14"><div class="mhead"><span class="num" aria-hidden="true">14</span><div><span class="badge">Module 14 · Intermediate</span><h2>Text, Media and Content Utilities</h2></div></div><div class="body">
+<p>A set of small utilities you will reach for again and again.</p>
+<div class="tbl"><table><thead><tr><th>Class</th><th>Effect</th></tr></thead><tbody><tr><td>truncate, line-clamp-2, whitespace-nowrap, break-words</td><td>Handle long text</td></tr><tr><td>text-balance, text-pretty</td><td>Nicer line breaks in headings and paragraphs</td></tr><tr><td>columns-2, columns-3</td><td>Newspaper style columns</td></tr><tr><td>object-cover, object-contain, rounded-full</td><td>Fit images inside their box</td></tr><tr><td>snap-x, snap-mandatory, snap-center</td><td>Scroll snapping for carousels</td></tr><tr><td>scroll-smooth, scroll-mt-16</td><td>Smooth anchor scrolling and offset under a sticky header</td></tr><tr><td>cursor-pointer, select-none, pointer-events-none</td><td>Cursor and interaction</td></tr><tr><td>sr-only, not-sr-only</td><td>Visible to screen readers only</td></tr><tr><td>rotate-x-12, perspective-distant, transform-3d</td><td>3D transforms (new in v4)</td></tr></tbody></table></div>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">Try ▶</button><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;div class="grid gap-4 p-4 sm:grid-cols-2"&gt;
+  &lt;p class="line-clamp-2 border-4 border-black bg-white p-3"&gt;Tailwind can cut long text after a chosen number of lines and add an ellipsis. This sentence keeps going so that the third line never shows, which is exactly what line-clamp-2 is for.&lt;/p&gt;
+  &lt;p class="columns-2 gap-6 border-4 border-black bg-white p-3 text-sm"&gt;Text can flow into newspaper style columns with one class. This paragraph is long enough to fill both columns so you can see the effect clearly in the result below the code.&lt;/p&gt;
+  &lt;div class="flex snap-x snap-mandatory gap-3 overflow-x-auto border-4 border-black bg-white p-3 sm:col-span-2"&gt;
+    &lt;div class="h-20 w-40 shrink-0 snap-center bg-pink-300"&gt;&lt;/div&gt;
+    &lt;div class="h-20 w-40 shrink-0 snap-center bg-sky-300"&gt;&lt;/div&gt;
+    &lt;div class="h-20 w-40 shrink-0 snap-center bg-lime-300"&gt;&lt;/div&gt;
+    &lt;div class="h-20 w-40 shrink-0 snap-center bg-yellow-300"&gt;&lt;/div&gt;
+    &lt;div class="h-20 w-40 shrink-0 snap-center bg-orange-300"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">Result</div></div>
+</div></section><section class="module reveal lv-a" id="m15"><div class="mhead"><span class="num" aria-hidden="true">15</span><div><span class="badge">Module 15 · Advanced</span><h2>Customization: Theme, Arbitrary Values, @apply</h2></div></div><div class="body">
+<p>Tailwind v4 is configured <strong>in CSS</strong>. Variables inside <code>@theme</code> become utilities: <code>--color-brand</code> gives <code>bg-brand</code> and <code>text-brand</code>, <code>--shadow-brutal</code> gives <code>shadow-brutal</code>, and <code>--breakpoint-3xl</code> gives a <code>3xl:</code> prefix.</p>
+<figure class="code"><figcaption><span>CSS</span><span class="fa"><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="css">@import "tailwindcss";
+
+@theme {
+  --color-brand: #ff7ab6;
+  --color-ink: #111111;
+  --font-display: "Archivo Black", sans-serif;
+  --shadow-brutal: 6px 6px 0 #111;
+  --breakpoint-3xl: 120rem;
+}</code></pre></figure>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">Try ▶</button><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;style type="text/tailwindcss"&gt;
+  @theme {
+    --color-brand: #ff7ab6;
+    --shadow-brutal: 6px 6px 0 #111;
+  }
+&lt;/style&gt;
+&lt;button class="border-4 border-black bg-brand px-6 py-3 font-bold shadow-brutal"&gt;Custom theme&lt;/button&gt;</code></pre></figure><div class="demo"><div class="demo-bar">Result</div></div>
+<h3>Your own utilities and components</h3>
+<p><code>@utility</code> defines a new utility class. <code>@apply</code> pastes utilities into your own class, handy for things you cannot template, like third party widgets.</p>
+<figure class="code"><figcaption><span>CSS</span><span class="fa"><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="css">@utility tab-4 {
+  tab-size: 4;
+}
+
+.btn {
+  @apply border-4 border-black bg-brand px-6 py-3 font-bold;
+}</code></pre></figure>
+<aside class="callout tip"><b>Tip</b><p>Prefer reusing a component in your framework over piling up <code>@apply</code> classes. Utilities in the markup are the point of Tailwind.</p></aside>
+</div></section><section class="module reveal lv-a" id="m16"><div class="mhead"><span class="num" aria-hidden="true">16</span><div><span class="badge">Module 16 · Advanced</span><h2>Configuration in Depth</h2></div></div><div class="body">
+<p>Everything is configured in your CSS file. Here are the directives you will meet on real projects.</p>
+<ul><li><code>@layer base</code> and <code>@layer components</code> add your own styles in the right place of the cascade, below utilities.</li><li><code>@source</code> tells Tailwind to scan extra folders, such as a UI library in <code>node_modules</code>.</li><li><code>prefix(tw)</code> makes every class start with <code>tw:</code>, avoiding clashes with existing CSS.</li><li><code>important</code> makes utilities win over other CSS. A trailing <code>!</code> does it for one class, like <code>bg-red-500!</code>.</li><li><code>@plugin</code> loads official plugins: Typography (<code>prose</code> for article text) and Forms.</li><li><code>@custom-variant</code> defines a variant of your own.</li><li><code>@reference</code> lets a scoped component style (Vue, Svelte) use your theme and <code>@apply</code>.</li></ul>
+<figure class="code"><figcaption><span>CSS</span><span class="fa"><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="css">@import "tailwindcss";
+
+/* Base styles and components live in cascade layers, so utilities can still override them */
+@layer base {
+  h1 {
+    @apply text-3xl font-black;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply border-4 border-black bg-yellow-300 px-5 py-2 font-bold;
+  }
+}</code></pre></figure>
+<figure class="code"><figcaption><span>CSS</span><span class="fa"><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="css">@import "tailwindcss" prefix(tw);
+
+/* Scan an extra folder for class names */
+@source "../node_modules/@my-company/ui-kit";
+
+/* Official plugins */
+@plugin "@tailwindcss/typography";
+
+/* Your own variant, used as midnight:bg-black */
+@custom-variant midnight (&amp;:where([data-theme="midnight"], [data-theme="midnight"] *));
+
+@theme {
+  /* Remove the default palette and keep only your own colors */
+  --color-*: initial;
+  --color-brand: #ff7ab6;
+  --color-ink: #111111;
+}</code></pre></figure>
+<h3>A dark mode toggle button</h3>
+<p>With the <code>@custom-variant dark</code> line from the states module, this script adds the <code>dark</code> class, remembers the choice and respects the system setting on the first visit.</p>
+<figure class="code"><figcaption><span>JavaScript</span><span class="fa"><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="js">const root = document.documentElement;
+const saved = localStorage.getItem("theme");
+
+if (saved === "dark" || (!saved &amp;&amp; matchMedia("(prefers-color-scheme: dark)").matches)) {
+  root.classList.add("dark");
+}
+
+document.querySelector("#toggle").addEventListener("click", () =&gt; {
+  const isDark = root.classList.toggle("dark");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+});</code></pre></figure>
+<aside class="callout warn"><b>Caution</b><p>Resetting the palette with <code>--color-*: initial;</code> removes every default color. Classes such as <code>bg-pink-400</code> then stop working until you define your own.</p></aside>
+</div></section><section class="module reveal lv-a" id="m17"><div class="mhead"><span class="num" aria-hidden="true">17</span><div><span class="badge">Module 17 · Advanced</span><h2>Reuse and Accessibility</h2></div></div><div class="body">
+<p>Long class lists look scary but are easy to manage. Repeat a pattern more than a few times? Turn it into a <strong>component</strong> in your framework (React, Vue, Svelte, or template partials). The classes then live in one place.</p>
+<figure class="code"><figcaption><span>JavaScript</span><span class="fa"><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="js">export function Button({ children }) {
+  return (
+    &lt;button className="border-4 border-black bg-yellow-300 px-5 py-2 font-bold hover:bg-pink-300"&gt;
+      {children}
+    &lt;/button&gt;
+  );
+}</code></pre></figure>
+<h3>Accessibility checklist</h3>
+<ul><li>Use real elements (<code>button</code>, <code>a</code>, <code>label</code>) before adding ARIA.</li><li>Keep a visible focus style, for example <code>focus-visible:ring-4</code>.</li><li>Check color contrast between text and background.</li><li>Hide text visually but keep it for screen readers with <code>sr-only</code>.</li><li>Respect <code>motion-reduce:</code>.</li></ul>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">Try ▶</button><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;div class="flex items-center gap-4 p-4"&gt;
+  &lt;button type="button" class="border-4 border-black bg-yellow-300 px-5 py-2 font-bold focus-visible:ring-4 focus-visible:ring-sky-500 motion-reduce:transition-none"&gt;
+    Save
+  &lt;/button&gt;
+  &lt;span class="sr-only"&gt;Only screen readers read this text&lt;/span&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">Result</div></div>
+<aside class="callout take"><b>Key takeaway</b><p>Good Tailwind is just good HTML plus classes. Semantic tags and focus states matter more than any class name.</p></aside>
+</div></section><section class="module reveal lv-a" id="m18"><div class="mhead"><span class="num" aria-hidden="true">18</span><div><span class="badge">Module 18 · Advanced</span><h2>Frameworks, Tooling and Production</h2></div></div><div class="body">
+<p>Most frameworks use Vite, so the setup from module 02 works almost everywhere. Add the <code>@tailwindcss/vite</code> plugin, then <code>@import "tailwindcss";</code> in your main CSS.</p>
+<div class="tbl"><table><thead><tr><th>Framework</th><th>How to add Tailwind v4</th></tr></thead><tbody><tr><td>React, Vue, Svelte, Astro, SvelteKit, Laravel, Nuxt</td><td>Use the Vite plugin <code>@tailwindcss/vite</code></td></tr><tr><td>Next.js, Angular</td><td>Use <code>@tailwindcss/postcss</code> in the PostCSS config</td></tr><tr><td>Plain HTML or any backend</td><td>Use the Tailwind CLI and link the output file</td></tr></tbody></table></div>
+<figure class="code"><figcaption><span>Shell</span><span class="fa"><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="sh">npm create vite@latest my-app -- --template react
+cd my-app
+npm install tailwindcss @tailwindcss/vite
+# then add @import "tailwindcss"; to src/index.css</code></pre></figure>
+<figure class="code"><figcaption><span>JavaScript</span><span class="fa"><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="js">// vite.config.js (React)
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+});</code></pre></figure>
+<figure class="code"><figcaption><span>JavaScript</span><span class="fa"><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="js">// postcss.config.mjs (Next.js, after: npm install tailwindcss @tailwindcss/postcss postcss)
+const config = {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+
+export default config;</code></pre></figure>
+<h3>Tools that save time</h3>
+<ul><li>The <em>Tailwind CSS IntelliSense</em> VS Code extension: autocomplete, hover previews and errors.</li><li><code>prettier-plugin-tailwindcss</code> sorts class names into a consistent order.</li><li><code>clsx</code> with <code>tailwind-merge</code> builds conditional class lists and resolves conflicts such as <code>px-4</code> against <code>px-6</code>.</li></ul>
+<figure class="code"><figcaption><span>JavaScript</span><span class="fa"><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="js">// .prettierrc (npm install -D prettier prettier-plugin-tailwindcss)
+{
+  "plugins": ["prettier-plugin-tailwindcss"]
+}</code></pre></figure>
+<figure class="code"><figcaption><span>JavaScript</span><span class="fa"><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="js">// npm install clsx tailwind-merge
+import { clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export const cn = (...inputs) =&gt; twMerge(clsx(inputs));
+
+// cn("px-4 py-2", isActive &amp;&amp; "bg-pink-400", "px-6")  =&gt;  "py-2 bg-pink-400 px-6"</code></pre></figure>
+<h3>The classic mistake</h3>
+<figure class="code"><figcaption><span>JavaScript</span><span class="fa"><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="js">// Wrong: Tailwind cannot see a class name built from pieces
+const bad = `bg-${color}-500`;
+
+// Right: write complete class names so they can be found
+const good = color === "pink" ? "bg-pink-500" : "bg-sky-500";</code></pre></figure>
+<h3>Shipping to production</h3>
+<p>Tailwind only generates the classes it finds, so the output is small. Build a minified file and deploy that.</p>
+<figure class="code"><figcaption><span>Shell</span><span class="fa"><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="sh">npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css --minify</code></pre></figure>
+<aside class="callout tip"><b>Tip</b><p>If a class does not work: check the spelling, check that the file is scanned (see <code>@source</code>), confirm the CSS file is linked, and inspect the element in DevTools to see which rule wins.</p></aside>
+</div></section><section class="module reveal lv-a" id="m19"><div class="mhead"><span class="num" aria-hidden="true">19</span><div><span class="badge">Module 19 · Advanced</span><h2>Project: Build a Landing Page</h2></div></div><div class="body">
+<p>Time to combine everything: spacing, color, borders, flexbox, grid, responsive prefixes and hover states. This page has a header, a hero and a three card feature row.</p>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">Try ▶</button><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;header class="flex items-center justify-between border-b-4 border-black bg-yellow-300 px-6 py-4"&gt;
+  &lt;span class="text-xl font-black"&gt;PIXELNEST&lt;/span&gt;
+  &lt;nav class="hidden gap-6 font-semibold md:flex"&gt;
+    &lt;a href="#" class="hover:underline"&gt;Features&lt;/a&gt;
+    &lt;a href="#" class="hover:underline"&gt;Pricing&lt;/a&gt;
+    &lt;a href="#" class="hover:underline"&gt;Contact&lt;/a&gt;
+  &lt;/nav&gt;
+  &lt;a href="#" class="border-4 border-black bg-white px-4 py-2 font-bold shadow-[4px_4px_0_#111] transition hover:translate-x-1 hover:translate-y-1 hover:shadow-none"&gt;Sign up&lt;/a&gt;
+&lt;/header&gt;
+
+&lt;section class="bg-pink-300 px-6 py-16 text-center"&gt;
+  &lt;h1 class="mx-auto max-w-2xl text-4xl font-black leading-tight sm:text-6xl"&gt;Build fast. Look &lt;span class="bg-yellow-300 px-2"&gt;bold&lt;/span&gt;.&lt;/h1&gt;
+  &lt;p class="mx-auto mt-4 max-w-lg text-lg"&gt;A tiny landing page made only with Tailwind utility classes.&lt;/p&gt;
+  &lt;a href="#" class="mt-8 inline-block border-4 border-black bg-black px-8 py-4 text-lg font-bold text-white"&gt;Get started&lt;/a&gt;
+&lt;/section&gt;
+
+&lt;section class="grid gap-6 p-6 sm:grid-cols-3"&gt;
+  &lt;article class="border-4 border-black bg-sky-300 p-6"&gt;
+    &lt;h3 class="text-xl font-extrabold"&gt;Fast&lt;/h3&gt;
+    &lt;p class="mt-2"&gt;No CSS files to juggle.&lt;/p&gt;
+  &lt;/article&gt;
+  &lt;article class="border-4 border-black bg-lime-300 p-6"&gt;
+    &lt;h3 class="text-xl font-extrabold"&gt;Responsive&lt;/h3&gt;
+    &lt;p class="mt-2"&gt;Prefixes like md: adapt the layout.&lt;/p&gt;
+  &lt;/article&gt;
+  &lt;article class="border-4 border-black bg-orange-300 p-6"&gt;
+    &lt;h3 class="text-xl font-extrabold"&gt;Themeable&lt;/h3&gt;
+    &lt;p class="mt-2"&gt;Change tokens in one place.&lt;/p&gt;
+  &lt;/article&gt;
+&lt;/section&gt;</code></pre></figure><div class="demo"><div class="demo-bar">Result</div></div>
+<h3>Your turn</h3>
+<ul><li>Paste the code into the Playground with <strong>Try</strong>.</li><li>Change the colors and the text to your own brand.</li><li>Add a pricing section with <code>grid</code> and <code>sm:grid-cols-3</code>.</li><li>Add a footer and test it with the Phone button.</li><li>Move it to a real project using the CLI or Vite setup.</li></ul>
+<aside class="callout take"><b>Key takeaway</b><p>Building small real pages is the fastest way to learn. Rebuild a site you like, one section at a time.</p></aside>
+</div></section><section class="module reveal lv-a" id="m20"><div class="mhead"><span class="num" aria-hidden="true">20</span><div><span class="badge">Module 20 · Advanced</span><h2>Project: Build a Pricing Page</h2></div></div><div class="body">
+<p>A pricing section tests your grid, spacing, hierarchy and hover skills. Three plans sit in a responsive grid, the middle plan is raised and highlighted, and the check marks come from the <code>before:</code> variant with <code>content-['✓']</code>.</p>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">Try ▶</button><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;section class="bg-yellow-200 px-6 py-12"&gt;
+  &lt;h2 class="mb-10 text-center text-4xl font-black"&gt;Pick a plan&lt;/h2&gt;
+  &lt;div class="mx-auto grid max-w-5xl gap-8 md:grid-cols-3"&gt;
+    &lt;div class="border-4 border-black bg-white p-6"&gt;
+      &lt;h3 class="text-xl font-extrabold"&gt;Free&lt;/h3&gt;
+      &lt;p class="mt-2 text-5xl font-black"&gt;$0&lt;/p&gt;
+      &lt;ul class="mt-4 space-y-2"&gt;
+        &lt;li class="before:mr-2 before:content-['✓']"&gt;1 project&lt;/li&gt;
+        &lt;li class="before:mr-2 before:content-['✓']"&gt;Community help&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;a href="#" class="mt-6 block border-4 border-black bg-white py-2 text-center font-bold hover:bg-yellow-300"&gt;Start free&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class="relative border-4 border-black bg-pink-300 p-6 shadow-[8px_8px_0_#111] md:-translate-y-4"&gt;
+      &lt;span class="absolute -top-4 left-1/2 -translate-x-1/2 border-4 border-black bg-yellow-300 px-3 text-sm font-black"&gt;POPULAR&lt;/span&gt;
+      &lt;h3 class="text-xl font-extrabold"&gt;Pro&lt;/h3&gt;
+      &lt;p class="mt-2 text-5xl font-black"&gt;$12&lt;span class="text-base font-bold"&gt;/mo&lt;/span&gt;&lt;/p&gt;
+      &lt;ul class="mt-4 space-y-2"&gt;
+        &lt;li class="before:mr-2 before:content-['✓']"&gt;Unlimited projects&lt;/li&gt;
+        &lt;li class="before:mr-2 before:content-['✓']"&gt;Priority support&lt;/li&gt;
+        &lt;li class="before:mr-2 before:content-['✓']"&gt;Custom domain&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;a href="#" class="mt-6 block border-4 border-black bg-black py-2 text-center font-bold text-white hover:bg-white hover:text-black"&gt;Go Pro&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class="border-4 border-black bg-white p-6"&gt;
+      &lt;h3 class="text-xl font-extrabold"&gt;Team&lt;/h3&gt;
+      &lt;p class="mt-2 text-5xl font-black"&gt;$39&lt;span class="text-base font-bold"&gt;/mo&lt;/span&gt;&lt;/p&gt;
+      &lt;ul class="mt-4 space-y-2"&gt;
+        &lt;li class="before:mr-2 before:content-['✓']"&gt;10 seats&lt;/li&gt;
+        &lt;li class="before:mr-2 before:content-['✓']"&gt;Shared workspace&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;a href="#" class="mt-6 block border-4 border-black bg-white py-2 text-center font-bold hover:bg-yellow-300"&gt;Contact us&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre></figure><div class="demo"><div class="demo-bar">Result</div></div>
+<h3>What to notice</h3>
+<ul><li><code>md:grid-cols-3</code> stacks plans on phones and aligns three on wider screens.</li><li>The popular plan uses <code>relative</code> plus an <code>absolute</code> badge, and <code>md:-translate-y-4</code> lifts it only on larger screens.</li><li>Hover effects on the buttons use <code>hover:bg-*</code> and <code>hover:text-*</code> together.</li></ul>
+<h3>Your turn</h3>
+<ul><li>Add a monthly and yearly label under each price.</li><li>Add a fourth plan and switch to <code>lg:grid-cols-4</code>.</li><li>Give your brand colors with <code>@theme</code>.</li></ul>
+</div></section><section class="module reveal lv-a" id="m21"><div class="mhead"><span class="num" aria-hidden="true">21</span><div><span class="badge">Module 21 · Advanced</span><h2>Project: Build a Dashboard</h2></div></div><div class="body">
+<p>Dashboards combine everything: a sidebar and content area with an arbitrary grid, stat cards, a simple bar chart made of flex items and height fractions, and a data table with dividers and hover rows.</p>
+<figure class="code"><figcaption><span>HTML</span><span class="fa"><button class="tryb" type="button">Try ▶</button><button class="copy" type="button">Copy</button></span></figcaption><pre><code data-lang="html">&lt;div class="grid min-h-[26rem] grid-cols-[10rem_1fr] border-4 border-black bg-white"&gt;
+  &lt;aside class="border-r-4 border-black bg-yellow-300 p-4"&gt;
+    &lt;p class="mb-4 text-xl font-black"&gt;DASH&lt;/p&gt;
+    &lt;nav class="flex flex-col gap-2 font-semibold"&gt;
+      &lt;a href="#" class="border-2 border-black bg-white px-3 py-2"&gt;Overview&lt;/a&gt;
+      &lt;a href="#" class="px-3 py-2 hover:bg-white"&gt;Orders&lt;/a&gt;
+      &lt;a href="#" class="px-3 py-2 hover:bg-white"&gt;Customers&lt;/a&gt;
+      &lt;a href="#" class="px-3 py-2 hover:bg-white"&gt;Settings&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/aside&gt;
+  &lt;main class="space-y-6 p-6"&gt;
+    &lt;h1 class="text-3xl font-black"&gt;Overview&lt;/h1&gt;
+    &lt;div class="grid gap-4 sm:grid-cols-3"&gt;
+      &lt;div class="border-4 border-black bg-pink-300 p-4"&gt;&lt;p class="text-sm font-bold uppercase"&gt;Revenue&lt;/p&gt;&lt;p class="text-3xl font-black"&gt;$12.4k&lt;/p&gt;&lt;/div&gt;
+      &lt;div class="border-4 border-black bg-sky-300 p-4"&gt;&lt;p class="text-sm font-bold uppercase"&gt;Orders&lt;/p&gt;&lt;p class="text-3xl font-black"&gt;318&lt;/p&gt;&lt;/div&gt;
+      &lt;div class="border-4 border-black bg-lime-300 p-4"&gt;&lt;p class="text-sm font-bold uppercase"&gt;Visitors&lt;/p&gt;&lt;p class="text-3xl font-black"&gt;9,020&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="flex h-32 items-end gap-2 border-4 border-black bg-white p-3"&gt;
+      &lt;div class="h-1/3 flex-1 bg-pink-400"&gt;&lt;/div&gt;
+      &lt;div class="h-1/2 flex-1 bg-pink-400"&gt;&lt;/div&gt;
+      &lt;div class="h-2/3 flex-1 bg-pink-400"&gt;&lt;/div&gt;
+      &lt;div class="h-1/2 flex-1 bg-pink-400"&gt;&lt;/div&gt;
+      &lt;div class="h-5/6 flex-1 bg-pink-400"&gt;&lt;/div&gt;
+      &lt;div class="h-full flex-1 bg-yellow-300"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;table class="w-full border-4 border-black text-left text-sm"&gt;
+      &lt;thead class="bg-yellow-300"&gt;&lt;tr&gt;&lt;th class="p-2"&gt;Order&lt;/th&gt;&lt;th class="p-2"&gt;Customer&lt;/th&gt;&lt;th class="p-2"&gt;Total&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+      &lt;tbody class="divide-y-2 divide-black"&gt;
+        &lt;tr class="hover:bg-pink-100"&gt;&lt;td class="p-2"&gt;#1042&lt;/td&gt;&lt;td class="p-2"&gt;Ayesha&lt;/td&gt;&lt;td class="p-2"&gt;$48&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr class="hover:bg-pink-100"&gt;&lt;td class="p-2"&gt;#1043&lt;/td&gt;&lt;td class="p-2"&gt;Tanvir&lt;/td&gt;&lt;td class="p-2"&gt;$120&lt;/td&gt;&lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/main&gt;
+&lt;/div&gt;</code></pre></figure><div class="demo"><div class="demo-bar">Result</div></div>
+<h3>What to notice</h3>
+<ul><li><code>grid-cols-[10rem_1fr]</code> is an arbitrary value: a fixed sidebar and a flexible content column.</li><li>The bar chart uses <code>items-end</code> so bars grow from the bottom, and <code>h-1/3</code>, <code>h-2/3</code> for heights.</li><li><code>divide-y-2 divide-black</code> draws the lines between table rows.</li></ul>
+<h3>Your turn</h3>
+<ul><li>Hide the sidebar on phones with <code>hidden md:block</code> and add a top bar instead.</li><li>Add dark mode with <code>dark:</code> variants.</li><li>Rebuild it in React with a <code>StatCard</code> component.</li></ul>
+<aside class="callout take"><b>Key takeaway</b><p>You have now built a landing page, a pricing page and a dashboard, the three layouts behind most websites.</p></aside>
+</div></section><section class="module reveal lv-r" id="m22"><div class="mhead"><span class="num" aria-hidden="true">22</span><div><span class="badge">Module 22 · Reference</span><h2>Cheat Sheet, Glossary, Next Steps</h2></div></div><div class="body">
+<h3>Quick reference</h3>
+<div class="tbl"><table><thead><tr><th>Need</th><th>Classes</th></tr></thead><tbody><tr><td>Padding and margin</td><td>p-4 px-6 py-2 m-4 mx-auto mt-8</td></tr><tr><td>Width and height</td><td>w-full w-1/2 max-w-md h-screen size-10</td></tr><tr><td>Text</td><td>text-xl font-bold leading-tight tracking-tight text-center uppercase</td></tr><tr><td>Color</td><td>bg-pink-400 text-black border-black bg-black/50</td></tr><tr><td>Border and shape</td><td>border-4 rounded-xl rounded-full ring-4 shadow-md</td></tr><tr><td>Flexbox</td><td>flex flex-col items-center justify-between gap-4</td></tr><tr><td>Grid</td><td>grid grid-cols-3 col-span-2 gap-4</td></tr><tr><td>Responsive</td><td>sm: md: lg: xl: 2xl:</td></tr><tr><td>States</td><td>hover: focus: active: disabled: group-hover: peer-checked: dark:</td></tr><tr><td>Motion</td><td>transition duration-300 hover:scale-110 animate-spin</td></tr></tbody></table></div>
+<h3>More utilities</h3><div class="tbl"><table><thead><tr><th>Need</th><th>Classes</th></tr></thead><tbody><tr><td>Position</td><td>relative absolute fixed sticky inset-0 top-4 z-10</td></tr><tr><td>Display</td><td>block inline-block hidden container mx-auto</td></tr><tr><td>Overflow and ratio</td><td>overflow-hidden overflow-auto aspect-video aspect-square</td></tr><tr><td>Gradient</td><td>bg-linear-to-r from-pink-400 via-yellow-300 to-sky-300 bg-radial</td></tr><tr><td>Filters</td><td>blur-sm grayscale backdrop-blur-md mix-blend-multiply</td></tr><tr><td>Variants</td><td>has-checked: aria-pressed: data-[state=open]: not-hover: placeholder: open: starting:</td></tr><tr><td>Container query</td><td>@container @md:grid-cols-3</td></tr><tr><td>Forms and tables</td><td>accent-pink-500 invalid: divide-y-2 odd: list-disc marker:</td></tr><tr><td>Text and media</td><td>truncate line-clamp-2 text-balance columns-2 object-cover snap-x</td></tr><tr><td>Config</td><td>@theme @utility @layer @source @plugin @custom-variant prefix(tw) important</td></tr></tbody></table></div><h3>Moving from v3 to v4</h3>
+<div class="tbl"><table><thead><tr><th>Tailwind v3</th><th>Tailwind v4</th></tr></thead><tbody><tr><td>@tailwind base; @tailwind components; @tailwind utilities;</td><td>@import "tailwindcss";</td></tr><tr><td>tailwind.config.js</td><td>@theme in your CSS</td></tr><tr><td>shadow-sm, shadow</td><td>shadow-xs, shadow-sm</td></tr><tr><td>rounded-sm, rounded</td><td>rounded-xs, rounded-sm</td></tr><tr><td>outline-none</td><td>outline-hidden</td></tr><tr><td>bg-black bg-opacity-50</td><td>bg-black/50</td></tr><tr><td>flex-shrink-0, flex-grow</td><td>shrink-0, grow</td></tr></tbody></table></div>
+<h3>Glossary</h3>
+<div class="tbl"><table><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody><tr><td>Utility class</td><td>A small class that does one styling job, like p-4</td></tr><tr><td>Variant</td><td>A prefix that applies a class only in a situation, like hover:</td></tr><tr><td>Breakpoint</td><td>A screen width where the layout can change</td></tr><tr><td>Mobile first</td><td>Unprefixed classes are for small screens, prefixes add larger ones</td></tr><tr><td>Preflight</td><td>Tailwind's base reset of browser default styles</td></tr><tr><td>Theme variable</td><td>A CSS variable in @theme that creates utilities</td></tr><tr><td>Arbitrary value</td><td>A one off value in square brackets, like w-[137px]</td></tr><tr><td>@apply</td><td>Copies utilities into your own CSS class</td></tr></tbody></table></div>
+<h3>Next steps</h3>
+<ul><li>Read the official Tailwind CSS documentation for every utility.</li><li>Install the <em>Tailwind CSS IntelliSense</em> extension for VS Code and the <em>prettier-plugin-tailwindcss</em> class sorter.</li><li>Learn a framework such as React or Vue and build components.</li><li>Explore component libraries like Headless UI and daisyUI once the basics feel natural.</li></ul>
+<aside class="callout take"><b>Key takeaway</b><p>You know the full path now: concepts, utilities, layout, responsive design, states, theming and a real project. Keep building.</p></aside>
+</div></section>
+  <footer class="foot"><span>Every example runs live in your browser with the Tailwind Play CDN.</span><span>English edition · <a href="#top">Back to top</a></span></footer>
+</main>
+</div>
+<aside class="lab" id="lab" data-t="{&quot;confirm&quot;: &quot;Reset the playground?&quot;}" aria-label="Playground"><div class="labbar"><b>Playground</b><span class="spacer"></span><button class="btn sm" data-w="375px" type="button">Phone</button><button class="btn sm" data-w="768px" type="button">Tablet</button><button class="btn sm" data-w="100%" type="button">Desktop</button><button class="btn sm" id="lab-reset" type="button">Reset</button><button class="btn sm" id="lab-close" type="button" aria-label="Close">✕</button></div><div class="labgrid"><div class="ed"><textarea id="lab-sql" spellcheck="false" placeholder="Write HTML with Tailwind classes here..."></textarea><div class="acts"><span class="hint">Preview updates as you type</span></div></div><div class="out pv"><div class="pvw" id="lab-wrap"><iframe id="lab-frame" sandbox="allow-scripts" title="Preview"></iframe></div></div></div></aside>
+<script src="assets/app.js"></script>
+<script src="assets/lab.js"></script>
+</body>
+</html>
